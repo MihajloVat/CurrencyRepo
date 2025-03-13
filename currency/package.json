@@ -1,0 +1,42 @@
+{
+  "name": "mycurr",
+  "version": "1.0.1",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron . --no--sandbox",
+    "build": "electron-builder"
+  },
+  "author": "mike",
+  "license": "ISC",
+  "description": "kursach",
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.currency.app",
+    "productName": "Currency",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "icon": "src/image.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": false
+    }
+  }
+}
