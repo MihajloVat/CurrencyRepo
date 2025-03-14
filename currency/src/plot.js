@@ -1,6 +1,6 @@
 const trace = {
   x: ['2020-10-04', '2021-11-04', '2023-12-04'],
-  y: [80, 40, 60],
+  y: [30, 40, 100],
   mode: 'lines+markers',
   type: 'scatter',
   line: {
@@ -13,6 +13,23 @@ const trace = {
   },
 };
 
+//used in layout
+const TICKS_NUMBER = 5;
+const PADDING_RATIO = 0.5;
+const rangeMaxValue = Math.max(...trace.y);
+const minTick = Math.ceil(rangeMaxValue / TICKS_NUMBER);
+const padding = minTick * PADDING_RATIO;
+
+function getTicks() {
+  const ticks = [];
+
+  for (let i = 1; i <= 5; i++) {
+    ticks.push(minTick * i);
+  }
+
+  return ticks;
+}
+
 const layout = {
   showlegend: false,
   xaxis: {
@@ -20,8 +37,9 @@ const layout = {
     gridcolor: 'lightgray',
   },
   yaxis: {
-    range: [0, Math.max(...trace.y) + 5],
+    range: [0, rangeMaxValue + padding],
     gridcolor: 'lightgray',
+    tickvals: getTicks(),
   },
   dragmode: false,
   showlegend: false,

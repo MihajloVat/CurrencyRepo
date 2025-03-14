@@ -29,14 +29,24 @@
         "nsis",
         "portable"
       ],
-      "icon": "src/image.ico"
+      "icon": "icon.ico"
     },
-    "nsis": {
-      "oneClick": false,
-      "perMachine": true,
-      "allowToChangeInstallationDirectory": true,
-      "createDesktopShortcut": true,
-      "createStartMenuShortcut": false
+    "linux": {
+    "icon": "build/icon.png",
+    "target": [
+      "nsis",
+      "portable"
+    ]
+  },
+  "nsis": {
+  "oneClick": false,
+  "perMachine": true,
+  "allowToChangeInstallationDirectory": true,
+  "createDesktopShortcut": true,
+  "createStartMenuShortcut": true,
+  "shortcutName": "Currency",
+  "installerIcon": "icon.ico",
+  "uninstallerIcon": "icon.ico"
     }
   }
 }
