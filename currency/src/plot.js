@@ -16,18 +16,14 @@ const trace = {
 //used in layout
 const TICKS_NUMBER = 5;
 const PADDING_RATIO = 0.5;
+
 const rangeMaxValue = Math.max(...trace.y);
-const minTick = Math.ceil(rangeMaxValue / TICKS_NUMBER);
-const padding = minTick * PADDING_RATIO;
+const firstTick = Math.ceil(rangeMaxValue / TICKS_NUMBER);
+const padding = firstTick * PADDING_RATIO;
 
-function getTicks() {
-  const ticks = [];
-
-  for (let i = 1; i <= 5; i++) {
-    ticks.push(minTick * i);
-  }
-
-  return ticks;
+const ticks = [];
+for (let i = 1; i <= 5; i++) {
+  ticks.push(firstTick * i);
 }
 
 const layout = {
@@ -39,7 +35,7 @@ const layout = {
   yaxis: {
     range: [0, rangeMaxValue + padding],
     gridcolor: 'lightgray',
-    tickvals: getTicks(),
+    tickvals: ticks,
   },
   dragmode: false,
   showlegend: false,
