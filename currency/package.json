@@ -1,12 +1,12 @@
 {
   "name": "mycurr",
   "version": "1.0.1",
-  "main": "src/main.js",
+  "main": "src/JS/main.js",
   "scripts": {
     "start": "electron . --no--sandbox",
     "build": "electron-builder"
   },
-  "author": "mike",
+  "author": "Mike Vatolkin",
   "license": "ISC",
   "description": "kursach",
   "devDependencies": {
@@ -29,15 +29,8 @@
         "nsis",
         "portable"
       ],
-      "icon": "icon.ico"
+      "icon": "src/icon.ico"
     },
-    "linux": {
-    "icon": "build/icon.png",
-    "target": [
-      "nsis",
-      "portable"
-    ]
-  },
   "nsis": {
   "oneClick": false,
   "perMachine": true,
@@ -45,8 +38,8 @@
   "createDesktopShortcut": true,
   "createStartMenuShortcut": true,
   "shortcutName": "Currency",
-  "installerIcon": "icon.ico",
-  "uninstallerIcon": "icon.ico"
+  "installerIcon": "src/icon.ico",
+  "uninstallerIcon": "src/icon.ico"
     }
   }
 }

@@ -7,3 +7,7 @@
     border-radius: 100px;
     overflow: hidden;
 }
+.plot-div * {
+    cursor: default !important;
+}
+
