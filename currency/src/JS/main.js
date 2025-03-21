@@ -8,7 +8,7 @@ const createWindow = () => {
     titleBarStyle: 'hiddenInset',
   });
   win.setMenuBarVisibility(false);
-  win.setTitle('Timer');
+  win.setTitle('Currency');
   win.loadFile('src/index.html');
 };
 app.whenReady().then(() => createWindow());

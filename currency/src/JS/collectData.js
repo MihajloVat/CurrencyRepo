@@ -6,7 +6,7 @@ async function DataFetch() {
     const response = await fetch(
       'https://bank.gov.ua/NBU_Exchange/exchange_site?start=20230101&end=20231231&valcode=USD&sort=exchangedate&order=desc&json'
     );
-    const data = response.json();
+    const data = await response.json();
 
     return data;
   } catch (err) {

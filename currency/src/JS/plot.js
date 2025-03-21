@@ -36,7 +36,6 @@ const layout = {
     gridcolor: 'lightgray',
     tickvals: ticks,
   },
-  showlegend: false,
   dragmode: false,
   showlegend: false,
   autosize: true,
