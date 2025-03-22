@@ -1,10 +1,7 @@
-const fs = require('fs');
-const path = require('path');
-
-async function DataFetch() {
+async function getPlotData(curr) {
   try {
     const response = await fetch(
-      'https://bank.gov.ua/NBU_Exchange/exchange_site?start=20230101&end=20231231&valcode=USD&sort=exchangedate&order=desc&json'
+      `https://bank.gov.ua/NBU_Exchange/exchange_site?start=20230101&end=20231231&valcode=${curr}&sort=exchangedate&order=desc&json`
     );
     const data = await response.json();
 
@@ -14,4 +11,6 @@ async function DataFetch() {
   }
 }
 
-DataFetch().then((data) => console.log(data));
+module.exports = getPlotData;
+
+//getPlotData('usd').then((data) => console.log(data)); //debug
