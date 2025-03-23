@@ -1,6 +1,3 @@
-const getPlotData = require('./collectData');
-//getPlotData('usd').then((data) => console.log(data)); //debug
-
 const trace = {
   x: ['2020-10-04', '2021-11-04', '2023-12-04'],
   y: [30, 40, 100],

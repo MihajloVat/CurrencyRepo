@@ -11,6 +11,6 @@ async function getPlotData(curr) {
   }
 }
 
-module.exports = getPlotData;
+//module.exports = getPlotData;
 
-//getPlotData('usd').then((data) => console.log(data)); //debug
+getPlotData('usd').then((data) => console.log(data)); //debug
