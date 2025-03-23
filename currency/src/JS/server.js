@@ -4,6 +4,7 @@ const PORT = 3000;
 
 const server = http.createServer(async (req, res) => {
   res.setHeader('Content-Type', 'application/json');
+  res.setHeader('Access-Control-Allow-Origin', '*');
 
   try {
     const response = await fetch(
