@@ -17,7 +17,7 @@ const createWindow = () => {
 };
 
 app.whenReady().then(() => {
-  serverProcess = spawn('node', ['server.js'], { detached: true });
+  serverProcess = spawn('node', ['src/JS/server.js'], { detached: true });
   createWindow();
 });
 

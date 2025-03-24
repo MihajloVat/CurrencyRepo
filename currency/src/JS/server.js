@@ -12,9 +12,17 @@ const server = http.createServer(async (req, res) => {
     );
     const data = await response.json();
 
-    res.end(JSON.stringify(data));
+    const dates = data.map((item) => item.exchangedate);
+    const rates = data.map((item) => item.rate);
+
+    const output = {
+      dates: dates.reverse(),
+      rates: rates,
+    };
+
+    res.end(JSON.stringify(output));
   } catch (err) {
-    res.statusCode = 500;
+    //res.statusCode = 500; ?dono wt,need studying
     res.end(JSON.stringify({ error: 'failed' }));
   }
 });

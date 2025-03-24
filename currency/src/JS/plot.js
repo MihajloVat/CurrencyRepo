@@ -63,12 +63,7 @@ document.getElementById('tst').addEventListener('click', async () => {
     const response = await fetch('http://localhost:3000');
     const data = await response.json();
 
-    if (!Array.isArray(data)) throw new Error('Некоректні дані');
-
-    const dates = data.map((item) => item.exchangedate);
-    const rates = data.map((item) => item.rate);
-
-    renderPlot(dates, rates);
+    renderPlot(data.dates, data.rates);
   } catch (error) {
     console.error('Помилка отримання даних:', error);
   }
