@@ -1,24 +1,59 @@
-function renderPlot(xaxis, yaxis) {
-  const trace = {
-    x: xaxis,
-    y: yaxis,
-    mode: 'lines+markers',
-    type: 'scatter',
-    line: {
-      color: 'rgb(31, 150, 47)',
-      width: 2,
-    },
-    marker: {
-      color: 'rgb(11, 99, 45)',
-      size: 7,
-    },
-  };
+const trace = {
+  x: ['test'],
+  y: [5],
+  mode: 'lines+markers',
+  type: 'scatter',
+  line: {
+    color: 'rgb(31, 150, 47)',
+    width: 2,
+  },
+  marker: {
+    color: 'rgb(11, 99, 45)',
+    size: 7,
+  },
+};
 
-  //used in layout
+const layout = {
+  xaxis: {
+    type: 'category',
+    gridcolor: 'lightgray',
+  },
+  yaxis: {
+    range: [0, 10],
+    gridcolor: 'lightgray',
+  },
+  dragmode: false,
+  showlegend: false,
+  autosize: true,
+  margin: {
+    t: 40,
+    b: 50,
+    r: 50,
+  },
+};
+
+const config = {
+  doubleClick: false,
+  scrollZoom: false,
+  displayModeBar: false,
+};
+
+Plotly.newPlot('plot', [trace], layout, config);
+
+document.getElementById('tst').addEventListener('click', async () => {
+  let data = null;
+
+  try {
+    const response = await fetch('http://localhost:3000');
+    data = await response.json();
+  } catch (error) {
+    console.error('Помилка отримання даних:', error);
+  }
+
   const TICKS_NUMBER = 5;
   const PADDING_RATIO = 0.5;
 
-  const rangeMaxValue = Math.max(...trace.y);
+  const rangeMaxValue = Math.max(...data.rates);
   const firstTick = Math.ceil(rangeMaxValue / TICKS_NUMBER);
   const padding = firstTick * PADDING_RATIO;
 
@@ -27,44 +62,13 @@ function renderPlot(xaxis, yaxis) {
     ticks.push(firstTick * i);
   }
 
-  const layout = {
-    xaxis: {
-      type: 'category',
-      gridcolor: 'lightgray',
-    },
-    yaxis: {
-      range: [0, rangeMaxValue + padding],
-      gridcolor: 'lightgray',
-      tickvals: ticks,
-    },
-    dragmode: false,
-    showlegend: false,
-    autosize: true,
-    margin: {
-      t: 40,
-      b: 50,
-      r: 50,
-    },
-  };
+  trace.x = data.dates;
+  trace.y = data.rates;
 
-  const config = {
-    doubleClick: false,
-    scrollZoom: false,
-    displayModeBar: false,
-  };
+  console.log(trace.y);
 
-  Plotly.newPlot('plot', [trace], layout, config);
-}
+  layout.yaxis.range = [0, rangeMaxValue + padding];
+  layout.yaxis.tickvals = ticks;
 
-renderPlot(['test'], [5]);
-
-document.getElementById('tst').addEventListener('click', async () => {
-  try {
-    const response = await fetch('http://localhost:3000');
-    const data = await response.json();
-
-    renderPlot(data.dates, data.rates);
-  } catch (error) {
-    console.error('Помилка отримання даних:', error);
-  }
+  Plotly.react('plot', [trace], layout);
 });

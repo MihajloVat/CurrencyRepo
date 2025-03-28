@@ -22,7 +22,6 @@ const server = http.createServer(async (req, res) => {
 
     res.end(JSON.stringify(output));
   } catch (err) {
-    //res.statusCode = 500; ?dono wt,need studying
     res.end(JSON.stringify({ error: 'failed' }));
   }
 });
