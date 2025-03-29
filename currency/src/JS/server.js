@@ -1,6 +1,6 @@
 const http = require('http');
 
-const PORT = 3000;
+const PORT = 3001;
 
 const server = http.createServer(async (req, res) => {
   res.setHeader('Content-Type', 'application/json');
@@ -10,18 +10,23 @@ const server = http.createServer(async (req, res) => {
     const response = await fetch(
       'https://bank.gov.ua/NBU_Exchange/exchange_site?start=20250320&end=20250322&valcode=USD&sort=exchangedate&order=desc&json'
     );
-    const data = await response.json();
+    const rawData = await response.json();
 
-    const dates = data.map((item) => item.exchangedate);
-    const rates = data.map((item) => item.rate);
+    const dates = [];
+    const rates = [];
+
+    rawData.forEach((item) => {
+      dates.push(item.exchangedate);
+      rates.push(item.rate);
+    });
 
     const output = {
-      dates: dates.reverse(),
-      rates: rates,
+      dates,
+      rates,
     };
 
     res.end(JSON.stringify(output));
-  } catch (err) {
+  } catch {
     res.end(JSON.stringify({ error: 'failed' }));
   }
 });

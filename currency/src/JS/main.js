@@ -1,5 +1,5 @@
 const { app, BrowserWindow } = require('electron');
-const { spawn } = require('child_process');
+const { execFile } = require('child_process');
 let serverProcess = null;
 
 const createWindow = () => {
@@ -17,7 +17,7 @@ const createWindow = () => {
 };
 
 app.whenReady().then(() => {
-  serverProcess = spawn('node', ['src/JS/server.js'], { detached: true });
+  serverProcess = execFile('node', ['src/JS/server.js']);
   createWindow();
 });
 

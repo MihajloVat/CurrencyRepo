@@ -62,13 +62,13 @@ document.getElementById('tst').addEventListener('click', async () => {
     ticks.push(firstTick * i);
   }
 
-  trace.x = data.dates;
-  trace.y = data.rates;
-
-  console.log(trace.y);
+  const layoutUpd = {
+    'layout.yaxis.range': [0, rangeMaxValue + padding],
+    ' layout.yaxis.tickvals': ticks,
+  };
 
   layout.yaxis.range = [0, rangeMaxValue + padding];
   layout.yaxis.tickvals = ticks;
 
-  Plotly.react('plot', [trace], layout);
+  Plotly.update('plot', { x: [data.dates], y: [data.rates] }, layoutUpd);
 });
