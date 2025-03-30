@@ -9,17 +9,11 @@ const server = http.createServer(async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
 
   try {
-    const rawData = await dataProvider.getData('20250320', '20250322', 'USD');
+    const data = await dataProvider.getData('20250320', '20250322', 'USD');
 
-    const dates = rawData.map((item) => item.exchangedate);
-    const rates = rawData.map((item) => item.rate);
+    const filteredData = dataFilter(data);
 
-    const output = {
-      dates,
-      rates,
-    };
-
-    res.end(JSON.stringify(output));
+    res.end(JSON.stringify(filteredData));
   } catch {
     res.end(JSON.stringify({ error: 'failed' }));
   }
@@ -28,3 +22,17 @@ const server = http.createServer(async (req, res) => {
 server.listen(PORT, 'localhost', (error) =>
   error ? console.log(error) : console.log('listening')
 );
+
+function dataFilter(rawData) {
+  const dates = rawData.map((item) => item.exchangedate);
+  const rates = rawData.map((item) => item.rate);
+
+  const output = {
+    dates,
+    rates,
+  };
+
+  return output;
+}
+
+module.exports = { PORT };

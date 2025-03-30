@@ -1,8 +1,9 @@
 document.getElementById('tst').addEventListener('click', async () => {
+  const PORT = window.api.getPort();
   let data = null;
 
   try {
-    const response = await fetch(`http://localhost:3001`);
+    const response = await fetch(`http://localhost:${PORT}`);
     data = await response.json();
   } catch (error) {
     console.error('Помилка отримання даних:', error);
