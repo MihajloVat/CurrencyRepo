@@ -1,24 +1,18 @@
 const http = require('http');
+const DataProvider = require('./provider');
 
 const PORT = 3001;
+const dataProvider = new DataProvider();
 
 const server = http.createServer(async (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   res.setHeader('Access-Control-Allow-Origin', '*');
 
   try {
-    const response = await fetch(
-      'https://bank.gov.ua/NBU_Exchange/exchange_site?start=20250320&end=20250322&valcode=USD&sort=exchangedate&order=desc&json'
-    );
-    const rawData = await response.json();
+    const rawData = await dataProvider.getData('20250320', '20250322', 'USD');
 
-    const dates = [];
-    const rates = [];
-
-    rawData.forEach((item) => {
-      dates.push(item.exchangedate);
-      rates.push(item.rate);
-    });
+    const dates = rawData.map((item) => item.exchangedate);
+    const rates = rawData.map((item) => item.rate);
 
     const output = {
       dates,

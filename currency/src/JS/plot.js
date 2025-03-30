@@ -44,7 +44,7 @@ document.getElementById('tst').addEventListener('click', async () => {
   let data = null;
 
   try {
-    const response = await fetch('http://localhost:3000');
+    const response = await fetch('http://localhost:3001');
     data = await response.json();
   } catch (error) {
     console.error('Помилка отримання даних:', error);
