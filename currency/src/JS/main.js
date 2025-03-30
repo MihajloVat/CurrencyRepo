@@ -1,6 +1,10 @@
 const { app, BrowserWindow } = require('electron');
 const { execFile } = require('child_process');
+const path = require('path');
+
 let serverProcess = null;
+const serverPath = path.dirname(__filename);
+const indexPath = path.join(__dirname, '..');
 
 const createWindow = () => {
   const win = new BrowserWindow({
@@ -13,11 +17,12 @@ const createWindow = () => {
   });
   win.setMenuBarVisibility(false);
   win.setTitle('Currency');
-  win.loadFile('src/index.html');
+  win.loadFile(`${indexPath}/index.html`);
 };
 
 app.whenReady().then(() => {
-  serverProcess = execFile('node', ['src/JS/server.js']);
+  serverProcess = execFile('node', [`${serverPath}/server.js`]);
+
   createWindow();
 });
 
