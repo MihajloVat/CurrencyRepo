@@ -1,6 +1,6 @@
 const { contextBridge } = require('electron');
-const { PORT } = require('./server');
+const { PORT, HOSTNAME } = require('./server');
 
 contextBridge.exposeInMainWorld('api', {
-  getPort: () => PORT,
+  getURL: () => `http://${HOSTNAME}:${PORT}`,
 });

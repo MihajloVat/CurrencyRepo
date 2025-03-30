@@ -2,6 +2,7 @@ const http = require('http');
 const DataProvider = require('./provider');
 
 const PORT = 3001;
+const HOSTNAME = 'localhost';
 const dataProvider = new DataProvider();
 
 const server = http.createServer(async (req, res) => {
@@ -19,7 +20,7 @@ const server = http.createServer(async (req, res) => {
   }
 });
 
-server.listen(PORT, 'localhost', (error) =>
+server.listen(PORT, HOSTNAME, (error) =>
   error ? console.log(error) : console.log('listening')
 );
 
@@ -35,4 +36,4 @@ function dataFilter(rawData) {
   return output;
 }
 
-module.exports = { PORT };
+module.exports = { PORT, HOSTNAME };
