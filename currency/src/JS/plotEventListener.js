@@ -2,18 +2,23 @@ document.getElementById('tst').addEventListener('click', async () => {
   let data = null;
 
   try {
-    const response = await fetch('http://localhost:3001');
+    const response = await fetch(`http://localhost:3001`);
     data = await response.json();
   } catch (error) {
     console.error('Помилка отримання даних:', error);
   }
 
-  const TICKS_NUMBER = 5;
-  const PADDING_RATIO = 0.5;
+  Plotly.update(
+    'plot',
+    { x: [data.dates], y: [data.rates] },
+    getLayoutUpd(data.rates, 5, 0.5)
+  );
+});
 
-  const rangeMaxValue = Math.max(...data.rates);
-  const firstTick = Math.ceil(rangeMaxValue / TICKS_NUMBER);
-  const padding = firstTick * PADDING_RATIO;
+function getLayoutUpd(yaxis, tickNumber, paddingRatio) {
+  const rangeMaxValue = Math.max(...yaxis);
+  const firstTick = Math.ceil(rangeMaxValue / tickNumber);
+  const padding = firstTick * paddingRatio;
 
   const ticks = [];
   for (let i = 1; i <= 5; i++) {
@@ -21,12 +26,11 @@ document.getElementById('tst').addEventListener('click', async () => {
   }
 
   const layoutUpd = {
-    'layout.yaxis.range': [0, rangeMaxValue + padding],
-    ' layout.yaxis.tickvals': ticks,
+    yaxis: {
+      range: [0, rangeMaxValue + padding],
+      tickvals: ticks,
+    },
   };
 
-  layout.yaxis.range = [0, rangeMaxValue + padding];
-  layout.yaxis.tickvals = ticks;
-
-  Plotly.update('plot', { x: [data.dates], y: [data.rates] }, layoutUpd);
-});
+  return layoutUpd;
+}
