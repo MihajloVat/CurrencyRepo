@@ -1,9 +1,10 @@
 const http = require('http');
-const DataProvider = require('./provider');
+const { DataProvider, DataProcessor } = require('./server_modules');
 
 const PORT = 3001;
 const HOSTNAME = 'localhost';
 const dataProvider = new DataProvider();
+const dataProcessor = new DataProcessor();
 
 const server = http.createServer(async (req, res) => {
   res.setHeader('Content-Type', 'application/json');
@@ -12,7 +13,7 @@ const server = http.createServer(async (req, res) => {
   try {
     const data = await dataProvider.getData('20250320', '20250322', 'USD');
 
-    const filteredData = dataFilter(data);
+    const filteredData = dataProcessor.process(data);
 
     res.end(JSON.stringify(filteredData));
   } catch {
@@ -23,17 +24,5 @@ const server = http.createServer(async (req, res) => {
 server.listen(PORT, HOSTNAME, (error) =>
   error ? console.log(error) : console.log('listening')
 );
-
-function dataFilter(rawData) {
-  const dates = rawData.map((item) => item.exchangedate);
-  const rates = rawData.map((item) => item.rate);
-
-  const output = {
-    dates,
-    rates,
-  };
-
-  return output;
-}
 
 module.exports = { PORT, HOSTNAME };

@@ -11,4 +11,18 @@ class DataProvider {
   }
 }
 
-module.exports = DataProvider;
+class DataProcessor {
+  process(rawData) {
+    const dates = rawData.map((item) => item.exchangedate);
+    const rates = rawData.map((item) => item.rate);
+
+    const output = {
+      dates,
+      rates,
+    };
+
+    return output;
+  }
+}
+
+module.exports = { DataProvider, DataProcessor };
