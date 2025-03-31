@@ -1,8 +1,7 @@
 const http = require('http');
 const { DataProvider, DataProcessor } = require('./server_modules');
+const { config } = require('./config');
 
-const PORT = 3001;
-const HOSTNAME = 'localhost';
 const dataProvider = new DataProvider();
 const dataProcessor = new DataProcessor();
 
@@ -21,8 +20,6 @@ const server = http.createServer(async (req, res) => {
   }
 });
 
-server.listen(PORT, HOSTNAME, (error) =>
+server.listen(config.PORT, config.HOSTNAME, (error) =>
   error ? console.log(error) : console.log('listening')
 );
-
-module.exports = { PORT, HOSTNAME };
