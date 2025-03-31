@@ -9,11 +9,9 @@ document.getElementById('tst').addEventListener('click', async () => {
     console.error('Помилка отримання даних:', error);
   }
 
-  Plotly.update(
-    'plot',
-    { x: [data.dates], y: [data.rates] },
-    getLayoutUpd(data.rates, 5, 0.5)
-  );
+  const UpdatedLayout = getLayoutUpd(data.rates, 5, 0.5);
+
+  Plotly.update('plot', { x: [data.dates], y: [data.rates] }, UpdatedLayout);
 });
 
 function getLayoutUpd(yaxis, tickNumber, paddingRatio) {
