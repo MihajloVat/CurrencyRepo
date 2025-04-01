@@ -1,3 +1,5 @@
+const http = require('http');
+
 class DataProvider {
   async getData(startDay, lastDay, currency) {
     const url = `https://bank.gov.ua/NBU_Exchange/exchange_site?start=${startDay}&end=${lastDay}&valcode=${currency}&sort=exchangedate&order=desc&json`;
@@ -25,4 +27,39 @@ class DataProcessor {
   }
 }
 
-module.exports = { DataProvider, DataProcessor };
+class Server {
+  constructor(port, hostname, providerInstance, processorInstance) {
+    this.port = port;
+    this.hostname = hostname;
+    this.providerInstance = providerInstance;
+    this.processorInstance = processorInstance;
+  }
+
+  create() {
+    const server = http.createServer(async (req, res) => {
+      res.setHeader('Content-Type', 'application/json');
+      res.setHeader('Access-Control-Allow-Origin', '*');
+
+      try {
+        const data = await this.providerInstance.getData(
+          '20250320',
+          '20250322',
+          'USD'
+        );
+        const processedData = this.processorInstance.process(data);
+
+        res.end(JSON.stringify(processedData));
+      } catch {
+        res.end(JSON.stringify({ error: 'failed' }));
+      }
+    });
+
+    server.listen(this.port, this.hostname, (error) =>
+      error
+        ? console.log(error)
+        : console.log(`Server running at http://${this.hostname}:${this.port}/`)
+    );
+  }
+}
+
+module.exports = { DataProvider, DataProcessor, Server };
