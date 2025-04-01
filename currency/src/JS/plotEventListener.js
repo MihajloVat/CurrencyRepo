@@ -1,5 +1,9 @@
+const lochostURL = window.api.getURL();
+const updater = window.api.updater;
+const TICK_NUMBER = 5;
+const PADDING_RATIO = 0.5;
+
 document.getElementById('tst').addEventListener('click', async () => {
-  const lochostURL = window.api.getURL();
   let data = null;
 
   try {
@@ -9,27 +13,11 @@ document.getElementById('tst').addEventListener('click', async () => {
     console.error('Помилка отримання даних:', error);
   }
 
-  const UpdatedLayout = getLayoutUpd(data.rates, 5, 0.5);
+  const updatedLayout = updater.getLayoutUpd(
+    data.rates,
+    TICK_NUMBER,
+    PADDING_RATIO
+  );
 
-  Plotly.update('plot', { x: [data.dates], y: [data.rates] }, UpdatedLayout);
+  Plotly.update('plot', { x: [data.dates], y: [data.rates] }, updatedLayout);
 });
-
-function getLayoutUpd(yaxis, tickNumber, paddingRatio) {
-  const rangeMaxValue = Math.max(...yaxis);
-  const firstTick = Math.ceil(rangeMaxValue / tickNumber);
-  const padding = firstTick * paddingRatio;
-
-  const ticks = [];
-  for (let i = 1; i <= 5; i++) {
-    ticks.push(firstTick * i);
-  }
-
-  const layoutUpd = {
-    yaxis: {
-      range: [0, rangeMaxValue + padding],
-      tickvals: ticks,
-    },
-  };
-
-  return layoutUpd;
-}
