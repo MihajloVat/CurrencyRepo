@@ -49,16 +49,19 @@ class DataProvider {
 
 class DataProcessor {
   process(rawData) {
-    const dates = rawData.map((item) => item.exchangedate);
-    const rates = rawData.map((item) => item.rate);
+    throw new Error('Method not implemented');
+  }
+}
 
+class NBUDataProcessor extends DataProcessor {
+  process(rawData) {
     const output = {
-      dates,
-      rates,
+      dates: rawData.map((item) => item.exchangedate),
+      rates: rawData.map((item) => item.rate),
     };
 
     return output;
   }
 }
 
-module.exports = { DataProvider, DataProcessor, Server };
+module.exports = { DataProvider, NBUDataProcessor, Server };
