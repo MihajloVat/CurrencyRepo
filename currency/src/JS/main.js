@@ -1,9 +1,7 @@
 const { app, BrowserWindow } = require('electron');
-const { execFile } = require('child_process');
 const path = require('path');
+require('./server.js');
 
-let serverProcess = null;
-const serverPath = path.dirname(__filename);
 const indexPath = path.join(__dirname, '..');
 
 const createWindow = () => {
@@ -22,12 +20,9 @@ const createWindow = () => {
 };
 
 app.whenReady().then(() => {
-  serverProcess = execFile('node', [`${serverPath}/server.js`]);
-
   createWindow();
 });
 
 app.on('window-all-closed', () => {
-  serverProcess.kill();
   app.quit();
 });
