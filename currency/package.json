@@ -1,7 +1,7 @@
 {
   "name": "mycurr",
   "version": "1.0.1",
-  "main": "src/JS/main.js",
+  "main": "src/JS/main/main.js",
   "scripts": {
     "start": "electron . --no--sandbox",
     "build": "electron-builder"

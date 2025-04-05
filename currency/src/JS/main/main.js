@@ -1,8 +1,8 @@
+require('../server/server');
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
-require('./server.js');
 
-const indexPath = path.join(__dirname, '..');
+const indexPath = path.join(__dirname, '..', '..');
 
 const createWindow = () => {
   const win = new BrowserWindow({

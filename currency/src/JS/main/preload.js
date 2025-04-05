@@ -1,6 +1,6 @@
 const { contextBridge } = require('electron');
-const { config } = require('./config');
-const { Updater } = require('./updater');
+const { config } = require('../server/config');
+const { Updater } = require('../plot/updater');
 
 const updater = new Updater();
 
