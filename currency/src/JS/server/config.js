@@ -3,7 +3,7 @@ const config = {
   HOSTNAME: 'localhost',
 };
 
-const startDay = '20250320';
+const startDay = '20250101';
 const lastDay = '20250322';
 const currency = 'USD';
 

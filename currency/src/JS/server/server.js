@@ -1,7 +1,11 @@
-const { DataProvider, NBUDataProcessor, Server } = require('./server_modules');
-const { config, apiUrl } = require('./config');
+const {
+  NBUDataProvider,
+  NBUDataProcessor,
+  Server,
+} = require('./server_modules');
+const { config } = require('./config');
 
-const dataProvider = new DataProvider(apiUrl);
+const dataProvider = new NBUDataProvider();
 const dataProcessor = new NBUDataProcessor();
 const server = new Server(
   config.PORT,
