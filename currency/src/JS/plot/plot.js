@@ -1,6 +1,6 @@
 const trace = {
-  x: ['test'],
-  y: [5],
+  x: ['', ' ', '   '],
+  y: [3, 1, 2],
   mode: 'lines+markers',
   type: 'scatter',
   line: {
@@ -19,16 +19,18 @@ const layout = {
     gridcolor: 'lightgray',
   },
   yaxis: {
-    range: [0, 10],
+    range: [0, 5.5],
     gridcolor: 'lightgray',
   },
   dragmode: false,
   showlegend: false,
   autosize: true,
+  width: 750,
+  height: 438,
   margin: {
     t: 40,
     b: 50,
-    r: 50,
+    r: 80,
   },
 };
 
