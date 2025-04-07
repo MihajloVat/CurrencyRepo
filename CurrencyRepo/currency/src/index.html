@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Currency</title>
+    <script src="https://cdn.plot.ly/plotly-3.0.1.min.js"></script>
+  </head>
+  <body>
+    <div class="plot-page">
+      <div class="plot-div" id="plot"></div>
+
+      <div class="sidebar">
+        <div class="input-container">
+          <input
+            type="text"
+            id="currency-input"
+            placeholder="Введіть валюту..."
+            autocomplete="off"
+          />
+          <div class="suggestions" id="suggestions"></div>
+        </div>
+
+        <button id="tst">usd stat test</button>
+
+        <div class="stats-box" id="stats">
+          <div class="stat-line">
+            Валюта:
+            <div class="stat-value" id="avg-value">—</div>
+          </div>
+          <div class="stat-line">
+            Мінімум:
+            <div class="stat-value" id="min-value">—</div>
+          </div>
+          <div class="stat-line">
+            Максимум:
+            <div class="stat-value" id="max-value">—</div>
+          </div>
+          <div class="stat-line">
+            Середнє:
+            <div class="stat-value" id="count-value">—</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="JS/main/main.js"></script>
+    <script src="JS/input/input.js"></script>
+    <script src="JS/plot/plot.js"></script>
+    <script src="JS/plot/plot_update.js"></script>
+    <link rel="stylesheet" href="styles/plot-page.css" />
+  </body>
+</html>
