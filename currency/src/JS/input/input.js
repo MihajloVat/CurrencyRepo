@@ -43,7 +43,7 @@ document.addEventListener('click', (e) => {
   }
 });
 
-function updateStats(currency) {
+/*function updateStats(currency) {
   document.getElementById('avg-value').textContent = (
     Math.random() * 20
   ).toFixed(2);
@@ -56,7 +56,7 @@ function updateStats(currency) {
   document.getElementById('count-value').textContent = Math.floor(
     Math.random() * 100
   );
-}
+}*/
 
 // Приклад підказок
 setSuggestions(['USD', 'EUR', 'GBP', 'JPY', 'UAH']);

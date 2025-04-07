@@ -1,4 +1,4 @@
-const { contextBridge } = require('electron');
+const { contextBridge, dialog } = require('electron');
 const { config } = require('../server/config');
 const { Updater } = require('../plot/updater');
 

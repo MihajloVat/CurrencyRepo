@@ -13,11 +13,18 @@ document.getElementById('tst').addEventListener('click', async () => {
     console.error('Помилка отримання даних:', error);
   }
 
+  const formattedDates = data.dates.map((str) => {
+    const year = str.slice(0, 4);
+    const month = str.slice(4, 6);
+    const day = str.slice(6, 8);
+    return `${year}-${month}-${day}`;
+  });
+
   const updatedLayout = updater.getLayoutUpd(
-    data.rates,
+    data.EUR,
     TICK_NUMBER,
     PADDING_RATIO
   );
 
-  Plotly.update('plot', { x: [data.dates], y: [data.rates] }, updatedLayout);
+  Plotly.update('plot', { x: [formattedDates], y: [data.EUR] }, updatedLayout);
 });

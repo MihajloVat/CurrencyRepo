@@ -1,6 +1,6 @@
 const trace = {
   x: ['', ' ', '   '],
-  y: [3, 1, 2],
+  y: [4, 2, 3],
   mode: 'lines+markers',
   type: 'scatter',
   line: {

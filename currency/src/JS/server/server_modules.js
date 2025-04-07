@@ -19,8 +19,8 @@ class Server {
         const processedData = this.processorInstance.process(data);
 
         res.end(JSON.stringify(processedData));
-      } catch {
-        res.end(JSON.stringify({ error: 'failed' }));
+      } catch (err) {
+        res.end(JSON.stringify({ error: `${err}` }));
       }
     });
 
@@ -46,7 +46,7 @@ class DataProcessor {
 
 class NBUDataProcessor extends DataProcessor {
   process(rawData) {
-    const output = { data: rawData.dates };
+    const output = { dates: rawData.dates };
 
     for (const dailyData of rawData.data) {
       for (const currency of dailyData) {
@@ -66,10 +66,13 @@ class NBUDataProcessor extends DataProcessor {
 }
 
 class NBUDataProvider extends DataProvider {
+  constructor(dates) {
+    super();
+    this.dates = dates;
+  }
   async getData() {
-    const dates = ['20250303', '20250304', '20250304'];
     const data = [];
-    for (const day of dates) {
+    for (const day of this.dates) {
       try {
         const response = await fetch(
           `https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?date=${day}&json`
@@ -80,7 +83,7 @@ class NBUDataProvider extends DataProvider {
         console.log('failed to get Data in DataProvider: ', err);
       }
     }
-    return { data, dates };
+    return { data, dates: this.dates };
   }
 }
 
