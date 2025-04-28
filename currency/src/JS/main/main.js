@@ -1,4 +1,4 @@
-require('../server/server');
+require('../writer/writer');
 
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
