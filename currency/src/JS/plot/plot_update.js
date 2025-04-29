@@ -1,6 +1,5 @@
 const updater = window.api.updater;
 const fileReader = window.api.fileReader;
-const dates = window.api.dates;
 const TICK_NUMBER = 5;
 const PADDING_RATIO = 0.5;
 
@@ -8,13 +7,13 @@ document.getElementById('tst').addEventListener('click', async () => {
   let data = null;
 
   try {
-    const fileContent = await fileReader.readFile('data.json');
+    const fileContent = await fileReader.readFile();
     data = JSON.parse(fileContent);
   } catch (error) {
     console.error(error);
   }
 
-  const formattedDates = dates.map((str) => {
+  const formattedDates = data.dates.map((str) => {
     const year = str.slice(0, 4);
     const month = str.slice(4, 6);
     const day = str.slice(6, 8);

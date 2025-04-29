@@ -1,10 +1,13 @@
 const fs = require('fs').promises;
+const path = require('path');
+const { app } = require('electron');
 
 class FileWriter {
-    constructor(filePath, providerInstance, processorInstance) {
-        this.filePath = filePath;
+    constructor(providerInstance, processorInstance) {
         this.providerInstance = providerInstance;
         this.processorInstance = processorInstance;
+        this.filePath = path.join(app.getPath('userData'), 'data.json');
+
     }
 
     async write() {
@@ -17,6 +20,9 @@ class FileWriter {
         catch (error) {
             console.error(error);
         }
+    }
+    getFilePath() {
+        return this.filePath;
     }
 }
 

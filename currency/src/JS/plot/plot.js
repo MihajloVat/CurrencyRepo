@@ -9,7 +9,7 @@ const trace = {
   },
   marker: {
     color: 'rgb(11, 99, 45)',
-    size: 7,
+    size: 5,
   },
 };
 

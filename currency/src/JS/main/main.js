@@ -1,9 +1,11 @@
-require('../writer/writer');
-
-const { app, BrowserWindow } = require('electron');
+const {
+  NBUDataProvider,
+  NBUDataProcessor,
+  FileWriter
+} = require('../writer/writer_modules');
+const { getDates } = require('../writer/date_getter');
+const { app, BrowserWindow,ipcMain } = require('electron');
 const path = require('path');
-
-const indexPath = path.join(__dirname, '..', '..');
 
 const createWindow = () => {
   const win = new BrowserWindow({
@@ -17,10 +19,26 @@ const createWindow = () => {
   });
   win.setMenuBarVisibility(false);
   win.setTitle('Currency');
-  win.loadFile(`${indexPath}/index.html`);
+  win.loadFile(path.join(__dirname, '..', '..','index.html'));
 };
 
-app.whenReady().then(() => {
+let dataFilePath = null;
+
+app.whenReady().then(async () => {
+  const dates = getDates(120);
+
+  const provider = new NBUDataProvider(dates);
+  const processor = new NBUDataProcessor();
+  const writer = new FileWriter(provider, processor);
+
+  await writer.write();
+
+  dataFilePath = writer.getFilePath();
+
+  ipcMain.handle('get-file-path', () => {
+    return dataFilePath;
+  });
+
   createWindow();
 });
 
