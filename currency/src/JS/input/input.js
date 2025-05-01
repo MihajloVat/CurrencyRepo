@@ -1,62 +1,23 @@
 const input = document.getElementById('currency-input');
-const suggestionsBox = document.getElementById('suggestions');
-let suggestions = [];
 
-function setSuggestions(newSuggestions) {
-  suggestions = newSuggestions;
-}
+const suggestions = [
+  "USD", "EUR", "UAH", "GBP", "JPY", "AUD", "CAD", "CHF", "CNY", "CZK",
+  "DKK", "HKD", "HUF", "ILS", "INR", "KRW", "MXN", "NOK", "NZD", "PLN",
+  "RON", "SEK", "SGD", "THB", "TRY", "ZAR", "BRL", "IDR", "MYR", "PHP",
+  "RUB", "SAR", "TWD", "AED", "ARS", "BDT", "CLP", "COP", "EGP", "ISK",
+  "KZT", "LKR", "MAD", "NGN", "PKR", "QAR", "RSD", "VND", "BGN", "HRK",
+  "KES", "KWD", "OMR", "PEN", "DZD", "GEL", "JOD", "LBP", "MKD", "MNT",
+  "MOP", "NAD", "PAB", "SYP", "TND", "TTD", "UGX", "UYU", "UZS", "XOF",
+  "YER", "ZMW", "BAM", "BBD", "BHD", "BMD", "BND", "BOB", "BSD", "BTN",
+  "BYN", "CDF", "CVE", "DJF", "ETB", "FJD", "GHS", "GNF", "GTQ", "HNL"
+];
 
-input.addEventListener('input', () => {
-  const value = input.value.toLowerCase();
-  suggestionsBox.innerHTML = '';
-
-  if (value === '') {
-    suggestionsBox.style.display = 'none';
-    return;
-  }
-
-  const filtered = suggestions.filter((s) => s.toLowerCase().includes(value));
-
-  if (filtered.length === 0) {
-    suggestionsBox.style.display = 'none';
-    return;
-  }
-
-  filtered.forEach((s) => {
-    const div = document.createElement('div');
-    div.classList.add('suggestion');
-    div.textContent = s;
-    div.addEventListener('click', () => {
-      input.value = s;
-      suggestionsBox.style.display = 'none';
-      updateStats(s);
-    });
-    suggestionsBox.appendChild(div);
-  });
-
-  suggestionsBox.style.display = 'block';
+const awesomplete = new Awesomplete(input, {
+  list: suggestions,
+  maxItems: 1000,
+  minChars: 0
 });
 
-document.addEventListener('click', (e) => {
-  if (!e.target.closest('.input-container')) {
-    suggestionsBox.style.display = 'none';
-  }
+input.addEventListener('focus', () => {
+  awesomplete.evaluate();
 });
-
-/*function updateStats(currency) {
-  document.getElementById('avg-value').textContent = (
-    Math.random() * 20
-  ).toFixed(2);
-  document.getElementById('min-value').textContent = (
-    Math.random() * 10
-  ).toFixed(2);
-  document.getElementById('max-value').textContent = (
-    Math.random() * 30
-  ).toFixed(2);
-  document.getElementById('count-value').textContent = Math.floor(
-    Math.random() * 100
-  );
-}*/
-
-// Приклад підказок
-setSuggestions(['USD', 'EUR', 'GBP', 'JPY', 'UAH']);

@@ -110,3 +110,9 @@ body {
 .input-container {
     position: relative;
 }
+
+.awesomplete > ul {
+    max-height: 200px; /* або інша висота */
+    overflow-y: auto;
+}
+
