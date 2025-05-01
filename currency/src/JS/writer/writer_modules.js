@@ -1,6 +1,6 @@
 const fs = require('fs').promises;
 const path = require('path');
-const { app } = require('electron');
+const {app} = require('electron');
 
 class FileWriter {
     constructor(providerInstance, processorInstance) {
@@ -16,11 +16,11 @@ class FileWriter {
             const processedData = this.processorInstance.process(rawData);
 
             await fs.writeFile(this.filePath, JSON.stringify(processedData, null, 2));
-        }
-        catch (error) {
+        } catch (error) {
             console.error(error);
         }
     }
+
     getFilePath() {
         return this.filePath;
     }
