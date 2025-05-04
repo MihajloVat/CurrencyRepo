@@ -22,18 +22,16 @@ const createWindow = () => {
     win.loadFile(path.join(__dirname, '..', '..', 'index.html'));
 };
 
-let dataFilePath = null;
+const dataFilePath = path.join(app.getPath('userData'), 'data.json');
 
 app.whenReady().then(async () => {
     const dates = getDates(120);
 
     const provider = new NBUDataProvider(dates);
     const processor = new NBUDataProcessor();
-    const writer = new FileWriter(provider, processor);
+    const writer = new FileWriter(provider, processor,dataFilePath);
 
     await writer.write();
-
-    dataFilePath = writer.getFilePath();
 
     ipcMain.handle('get-file-path', () => {
         return dataFilePath;

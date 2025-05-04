@@ -1,20 +1,10 @@
 const input_list = document.getElementById('currency-input');
-const fileReader = window.api.fileReader;
 
 const awesomplete = new Awesomplete(input_list, {
     list: [],
     maxItems: 1000,
     minChars: 0
 });
-
-(async () => {
-    try {
-        const fileContent = await fileReader.readFile();
-        window.fileData = JSON.parse(fileContent);
-    } catch (error) {
-        console.error(error)
-    }
-})()
 
 input_list.addEventListener('focus', async () => {
     const keys = Object.keys(window.fileData);

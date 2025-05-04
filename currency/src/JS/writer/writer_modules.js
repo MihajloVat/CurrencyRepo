@@ -3,10 +3,10 @@ const path = require('path');
 const {app} = require('electron');
 
 class FileWriter {
-    constructor(providerInstance, processorInstance) {
+    constructor(providerInstance, processorInstance,filePath) {
         this.providerInstance = providerInstance;
         this.processorInstance = processorInstance;
-        this.filePath = path.join(app.getPath('userData'), 'data.json');
+        this.filePath = filePath;
 
     }
 
@@ -19,10 +19,6 @@ class FileWriter {
         } catch (error) {
             console.error(error);
         }
-    }
-
-    getFilePath() {
-        return this.filePath;
     }
 }
 
