@@ -20,6 +20,8 @@ const createWindow = () => {
     win.setMenuBarVisibility(false);
     win.setTitle('Currency');
     win.loadFile(path.join(__dirname, '..', '..', 'index.html'));
+
+    win.webContents.openDevTools();
 };
 
 const dataFilePath = path.join(app.getPath('userData'), 'data.json');
