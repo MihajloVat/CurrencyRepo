@@ -1,3 +1,5 @@
+const formatDates = window.api.formatDates;
+
 function updatePlot(data, currCode, layout) {
 
     if (!data[currCode]) {
@@ -5,12 +7,7 @@ function updatePlot(data, currCode, layout) {
         return;
     }
 
-    const formattedDates = data.dates.map((str) => {
-        const year = str.slice(0, 4);
-        const month = str.slice(4, 6);
-        const day = str.slice(6, 8);
-        return `${year}-${month}-${day}`;
-    });
+    const formattedDates = data.dates.map(formatDates);
 
 
     Plotly.update('plot', {

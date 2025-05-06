@@ -1,6 +1,5 @@
 const fs = require('fs').promises;
-const path = require('path');
-const {app} = require('electron');
+const { getDates } = require('../dates/date_getter')
 
 class FileWriter {
     constructor(providerInstance, processorInstance,filePath) {

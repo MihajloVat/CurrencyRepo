@@ -3,7 +3,7 @@ const {
     NBUDataProcessor,
     FileWriter
 } = require('../writer/writer_modules');
-const {getDates} = require('../writer/date_getter');
+const { getDates } = require('../dates/date_getter')
 const {app, BrowserWindow, ipcMain} = require('electron');
 const path = require('path');
 
@@ -27,7 +27,7 @@ const createWindow = () => {
 const dataFilePath = path.join(app.getPath('userData'), 'data.json');
 
 app.whenReady().then(async () => {
-    const dates = getDates(120);
+    const dates = getDates();
 
     const provider = new NBUDataProvider(dates);
     const processor = new NBUDataProcessor();

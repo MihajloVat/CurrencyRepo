@@ -1,5 +1,6 @@
 const {contextBridge, ipcRenderer} = require('electron');
 const fs = require('fs').promises;
+const {formatDates} = require('../dates/dates_formatter')
 
 contextBridge.exposeInMainWorld('api', {
     fileReader: {
@@ -8,4 +9,5 @@ contextBridge.exposeInMainWorld('api', {
             return await fs.readFile(filePath, 'utf-8');
         }
     },
+    formatDates
 });

@@ -20,8 +20,8 @@ class StatsUpdate {
     placeRange(id) {
         const dates = this.data.dates;
         if (!dates || dates.length === 0) return;
-        const first = dates[0];
-        const last = dates[dates.length - 1];
+        const first = formatDates(dates[0]).replaceAll('-','.');
+        const last = formatDates(dates[dates.length - 1]).replaceAll('-','.');
         this.updateText(id, `${first} - ${last}`);
     }
 

@@ -1,11 +1,11 @@
-function getDates(monthsBack = 120) {
+function getDates(MONTH_BACK = 120) {
     const dates = [];
 
     const now = new Date();
     let year = now.getFullYear();
     let month = now.getMonth() + 1;
 
-    for (let i = 0; i < monthsBack; i++) {
+    for (let i = 0; i < MONTH_BACK; i++) {
         const yearString = year.toString();
         const monthString = month < 10 ? '0' + month : month.toString();
         dates.push(yearString + monthString + '01');
