@@ -1,3 +1,5 @@
+const formatDates = window.tools.formatDates
+
 class StatsUpdate {
     #idMap = {
         code: 'currency-code',

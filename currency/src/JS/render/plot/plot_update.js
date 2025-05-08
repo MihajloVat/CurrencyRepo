@@ -1,6 +1,5 @@
 const TICK_NUMBER = 5
 const PADDING_RATIO = 0.5
-const formatDates = window.tools.formatDates;
 
 function updatePlot(data, currCode, layout) {
 
@@ -9,7 +8,7 @@ function updatePlot(data, currCode, layout) {
         return;
     }
 
-    const formattedDates = data.dates.map(formatDates);
+    const formattedDates = data.dates.map(window.tools.formatDates);
 
     Plotly.update('plot', {
         x: [formattedDates], y: [data[currCode]]
