@@ -4,6 +4,8 @@ const {
     FileWriter
 } = require('../writer/writer_modules');
 const { getDates } = require('../dates/date_getter')
+const {dataFilePath}=require('./data_path');
+
 const {app, BrowserWindow, ipcMain} = require('electron');
 const path = require('path');
 
@@ -13,7 +15,7 @@ const createWindow = () => {
         height: 500,
         resizable: false,
         webPreferences: {
-            preload: path.join(__dirname, 'preload.js'),
+            preload: path.join(__dirname, 'preload/preload.js'),
             nodeIntegration: true,
         },
     });
@@ -23,8 +25,6 @@ const createWindow = () => {
 
     win.webContents.openDevTools();
 };
-
-const dataFilePath = path.join(app.getPath('userData'), 'data.json');
 
 app.whenReady().then(async () => {
     const dates = getDates();

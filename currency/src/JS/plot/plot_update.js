@@ -1,4 +1,4 @@
-const formatDates = window.api.formatDates;
+const formatDates = window.tools.formatDates;
 
 function updatePlot(data, currCode, layout) {
 
@@ -40,16 +40,14 @@ function drawPlot(curr,data) {
 }
 
 input.addEventListener('awesomplete-selectcomplete', async (event) => {
-    const data = window.fileData
     const currCode = event.text.toUpperCase()
-    drawPlot(currCode,data)
+    drawPlot(currCode,window.fileData)
 });
 
 input.addEventListener('keydown', async (event) => {
-    const data = window.fileData
     if (event.key === 'Enter') {
         const currCode = input.value.toUpperCase()
-        drawPlot(currCode,data)
+        drawPlot(currCode,window.fileData)
     }
 });
 
