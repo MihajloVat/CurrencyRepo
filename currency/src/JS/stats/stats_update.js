@@ -14,7 +14,7 @@ class StatsUpdate {
     }
 
     placeCode(id) {
-        this.updateText(id, this.currCode);
+        this.updateText(id, `1 ${this.currCode} → UAH`);
     }
 
     placeRange(id) {

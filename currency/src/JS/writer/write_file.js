@@ -6,7 +6,7 @@ async function writeFile(path){
 
     const provider = new NBUDataProvider(dates);
     const processor = new NBUDataProcessor();
-    const writer = new FileWriter(provider, processor,path);
+    const writer = new FileWriter(provider, processor, path);
 
     await writer.write();
 }

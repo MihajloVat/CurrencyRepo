@@ -5,5 +5,4 @@ function formatDates(yymmdd) {
     return `${year}-${month}-${day}`
 }
 
-module.exports = {formatDates
-}
+module.exports = {formatDates}

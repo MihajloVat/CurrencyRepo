@@ -23,7 +23,7 @@ const createWindow = () => {
 
 app.whenReady().then(async () => {
 
-    await writeFile()
+    await writeFile(dataFilePath)
 
     ipcMain.handle('get-file-path', () => {
         return dataFilePath;
