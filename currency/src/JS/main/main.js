@@ -1,10 +1,5 @@
-const {
-    NBUDataProvider,
-    NBUDataProcessor,
-    FileWriter
-} = require('../writer/writer_modules');
-const { getDates } = require('../dates/date_getter')
-const {dataFilePath}=require('./data_path');
+const {writeFile} = require('../writer/write_file')
+const {dataFilePath} = require('./data_path')
 
 const {app, BrowserWindow, ipcMain} = require('electron');
 const path = require('path');
@@ -27,13 +22,8 @@ const createWindow = () => {
 };
 
 app.whenReady().then(async () => {
-    const dates = getDates();
 
-    const provider = new NBUDataProvider(dates);
-    const processor = new NBUDataProcessor();
-    const writer = new FileWriter(provider, processor,dataFilePath);
-
-    await writer.write();
+    await writeFile()
 
     ipcMain.handle('get-file-path', () => {
         return dataFilePath;
