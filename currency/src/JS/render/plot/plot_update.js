@@ -41,14 +41,22 @@ function drawPlot(currCode, data) {
 }
 
 inputField.addEventListener('awesomplete-selectcomplete', async (event) => {
-    const currCode = event.text.toUpperCase()
-    drawPlot(currCode, window.fileData)
+    try {
+        const currCode = event.text.toUpperCase()
+        drawPlot(currCode, window.fileData)
+    } catch (err) {
+        console.log(err)
+    }
 });
 
 inputField.addEventListener('keydown', async (event) => {
     if (event.key === 'Enter') {
-        const currCode = inputField.value.toUpperCase()
-        drawPlot(currCode, window.fileData)
+        try {
+            const currCode = event.text.toUpperCase()
+            drawPlot(currCode, window.fileData)
+        } catch (err) {
+            console.log(err)
+        }
     }
 });
 

@@ -1,4 +1,4 @@
-const {NBU_URL_BASE,NBU_URL_SUFFIX} = require('./fetch_config')
+const {NBU_URL_BASE, NBU_URL_SUFFIX} = require('./fetch_config')
 
 const fs = require('fs').promises;
 
@@ -15,8 +15,8 @@ class FileWriter {
             const processedData = this.processorInstance.process(rawData);
 
             await fs.writeFile(this.filePath, JSON.stringify(processedData, null, 2));
-        } catch (error) {
-            console.error(error);
+        } catch (err) {
+            console.error('error while writing file', err);
         }
     }
 }
@@ -50,7 +50,7 @@ class NBUDataProvider extends DataProvider {
                 const dataOnDay = await response.json();
                 data.push(dataOnDay);
             } catch (err) {
-                console.log('failed to get Data in DataProvider: ', err);
+                console.log('error while getting data', err);
             }
         }
         return {data, dates: this.dates};
@@ -63,14 +63,18 @@ class NBUDataProcessor extends DataProcessor {
 
         for (const dailyData of rawData.data) {
             for (const currency of dailyData) {
-                const code = currency.cc;
-                const rate = currency.rate;
+                try {
+                    const code = currency.cc;
+                    const rate = currency.rate;
 
-                if (!output[code]) {
-                    output[code] = [];
+                    if (!output[code]) {
+                        output[code] = [];
+                    }
+
+                    output[code].push(rate);
+                } catch (err) {
+                    console.error('error while processing data: ', err);
                 }
-
-                output[code].push(rate);
             }
         }
 

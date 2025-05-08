@@ -7,10 +7,14 @@ const awesomplete = new Awesomplete(inputField, {
 });
 
 inputField.addEventListener('focus', async () => {
-    const keys = Object.keys(window.fileData);
-    keys.shift()
-    awesomplete.list = keys;
-    awesomplete.maxItems = keys.length - 1;
-    awesomplete.evaluate();
+    try {
+        const keys = Object.keys(window.fileData);
+        keys.shift()
+        awesomplete.list = keys;
+        awesomplete.maxItems = keys.length - 1;
+        awesomplete.evaluate();
+    } catch (err) {
+        console.log(err)
+    }
 });
 

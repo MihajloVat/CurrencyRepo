@@ -22,16 +22,21 @@ const createWindow = () => {
 };
 
 app.whenReady().then(async () => {
+    try {
+        await writeFile(dataFilePath)
 
-    await writeFile(dataFilePath)
+        ipcMain.handle('get-file-path', () => {
+            return dataFilePath;
+        });
 
-    ipcMain.handle('get-file-path', () => {
-        return dataFilePath;
-    });
-
-    createWindow();
+        createWindow();
+    } catch (err) {
+        console.log(err);
+    }
 });
 
 app.on('window-all-closed', () => {
     app.quit();
 });
+
+
