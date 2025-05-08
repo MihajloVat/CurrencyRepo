@@ -15,7 +15,7 @@ inputField.addEventListener('awesomplete-selectcomplete', async (event) => {
         const currCode = event.text.toUpperCase()
         drawPlot(currCode, window.fileData)
 
-        const statsUpdate = new StatsUpdate(window.fileData, inputField.value);
+        const statsUpdate = new StatsUpdate(window.fileData, currCode);
         statsUpdate.updateAll();
         inputField.value = '';
     } catch (err) {
@@ -26,12 +26,20 @@ inputField.addEventListener('awesomplete-selectcomplete', async (event) => {
 inputField.addEventListener('keydown', async (event) => {
     if (event.key === 'Enter') {
         try {
-            const currCode = event.text.toUpperCase()
+            const currCode = inputField.value.toUpperCase()
+
+            if (!window.fileData[currCode]) {
+                inputField.value = '';
+                return
+            }
+
             drawPlot(currCode, window.fileData)
 
-            const statsUpdate = new StatsUpdate(window.fileData, inputField.value);
+            const statsUpdate = new StatsUpdate(window.fileData, currCode);
             statsUpdate.updateAll();
             inputField.value = '';
+
+            inputField.blur();
         } catch (err) {
             console.log(err)
         }

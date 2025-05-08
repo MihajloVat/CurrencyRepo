@@ -66,24 +66,4 @@ class StatsUpdate {
     }
 }
 
-inputField.addEventListener('awesomplete-selectcomplete', () => {
-    try {
-        const statsUpdate = new StatsUpdate(window.fileData, inputField.value);
-        statsUpdate.updateAll();
-        inputField.value = '';
-    } catch (err) {
-        console.log(err)
-    }
-});
 
-inputField.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') {
-        try {
-            const statsUpdate = new StatsUpdate(window.fileData, inputField.value);
-            statsUpdate.updateAll();
-            inputField.value = '';
-        } catch (err) {
-            console.log(err)
-        }
-    }
-});
