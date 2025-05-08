@@ -1,11 +1,12 @@
+const {NBU_URL_BASE,NBU_URL_SUFFIX} = require('./fetch_config')
+
 const fs = require('fs').promises;
 
 class FileWriter {
-    constructor(providerInstance, processorInstance,filePath) {
+    constructor(providerInstance, processorInstance, filePath) {
         this.providerInstance = providerInstance;
         this.processorInstance = processorInstance;
         this.filePath = filePath;
-
     }
 
     async write() {
@@ -44,7 +45,7 @@ class NBUDataProvider extends DataProvider {
         for (const day of this.dates) {
             try {
                 const response = await fetch(
-                    `https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?date=${day}&json`
+                    `${NBU_URL_BASE}${day}${NBU_URL_SUFFIX}`
                 );
                 const dataOnDay = await response.json();
                 data.push(dataOnDay);
