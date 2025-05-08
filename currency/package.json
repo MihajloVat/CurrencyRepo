@@ -1,7 +1,7 @@
 {
   "name": "mycurr",
   "version": "1.0.1",
-  "main": "src/JS/main.js",
+  "main": "src/JS/main/main.js",
   "scripts": {
     "start": "electron . --no--sandbox",
     "build": "electron-builder"
@@ -29,17 +29,22 @@
         "nsis",
         "portable"
       ],
-      "icon": "src/icon.ico"
+      "icon": "src/icons/icon.ico"
     },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "icon": "src/icons/icon.png"
+},
     "nsis": {
       "oneClick": false,
-      "perMachine": false,
+      "perMachine": true,
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
-      "shortcutName": "Currency",
-      "installerIcon": "src/icon.ico",
-      "uninstallerIcon": "src/icon.ico"
+      "shortcutName": "Currency"
     }
   }
 }
