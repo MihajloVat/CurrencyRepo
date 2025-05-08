@@ -39,25 +39,7 @@ function drawPlot(currCode, data) {
     updatePlot(data, currCode, newLayout);
 }
 
-inputField.addEventListener('awesomplete-selectcomplete', async (event) => {
-    try {
-        const currCode = event.text.toUpperCase()
-        drawPlot(currCode, window.fileData)
-    } catch (err) {
-        console.log(err)
-    }
-});
 
-inputField.addEventListener('keydown', async (event) => {
-    if (event.key === 'Enter') {
-        try {
-            const currCode = event.text.toUpperCase()
-            drawPlot(currCode, window.fileData)
-        } catch (err) {
-            console.log(err)
-        }
-    }
-});
 
 
 
