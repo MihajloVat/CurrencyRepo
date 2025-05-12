@@ -1,4 +1,4 @@
-const MONTH_BACK = 120
+const MONTH_BACK = require('./writer_config')
 
 function getDates(monthBack = MONTH_BACK) {
     const dates = [];

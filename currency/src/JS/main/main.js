@@ -4,6 +4,8 @@ const {dataFilePath} = require('./data_path')
 const {app, BrowserWindow, ipcMain} = require('electron');
 const path = require('path');
 
+console.log(dataFilePath);
+
 const createWindow = () => {
     const win = new BrowserWindow({
         width: 1000,
