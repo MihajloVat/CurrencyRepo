@@ -1,11 +1,11 @@
+const {NBU_URL_BASE, NBU_URL_SUFFIX} = require('./writer_config')
 const fs = require('fs').promises;
 
 class FileWriter {
-    constructor(providerInstance, processorInstance,filePath) {
+    constructor(providerInstance, processorInstance, filePath) {
         this.providerInstance = providerInstance;
         this.processorInstance = processorInstance;
         this.filePath = filePath;
-
     }
 
     async write() {
@@ -14,8 +14,8 @@ class FileWriter {
             const processedData = this.processorInstance.process(rawData);
 
             await fs.writeFile(this.filePath, JSON.stringify(processedData, null, 2));
-        } catch (error) {
-            console.error(error);
+        } catch (err) {
+            console.error('error while writing file (FileWriters instance)', err);
         }
     }
 }
@@ -44,12 +44,12 @@ class NBUDataProvider extends DataProvider {
         for (const day of this.dates) {
             try {
                 const response = await fetch(
-                    `https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?date=${day}&json`
+                    `${NBU_URL_BASE}${day}${NBU_URL_SUFFIX}`
                 );
                 const dataOnDay = await response.json();
                 data.push(dataOnDay);
             } catch (err) {
-                console.log('failed to get Data in DataProvider: ', err);
+                console.log('error while getting data', err);
             }
         }
         return {data, dates: this.dates};
@@ -62,14 +62,18 @@ class NBUDataProcessor extends DataProcessor {
 
         for (const dailyData of rawData.data) {
             for (const currency of dailyData) {
-                const code = currency.cc;
-                const rate = currency.rate;
+                try {
+                    const code = currency.cc;
+                    const rate = currency.rate;
 
-                if (!output[code]) {
-                    output[code] = [];
+                    if (!output[code]) {
+                        output[code] = [];
+                    }
+
+                    output[code].push(rate);
+                } catch (err) {
+                    console.error('error while processing data: ', err);
                 }
-
-                output[code].push(rate);
             }
         }
 

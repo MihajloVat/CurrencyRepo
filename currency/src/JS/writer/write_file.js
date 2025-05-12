@@ -1,14 +1,24 @@
-const {getDates} = require("../dates/date_getter");
+const fs = require('fs').promises;
+const {getDates} = require("./dates_tools");
 const {NBUDataProvider, NBUDataProcessor, FileWriter} = require("./writer_modules");
 
-async function writeFile(path){
-    const dates = getDates();
+async function writeFile(path) {
+    try {
+        await fs.access(path);
 
-    const provider = new NBUDataProvider(dates);
-    const processor = new NBUDataProcessor();
-    const writer = new FileWriter(provider, processor, path);
+    } catch (err) {
+        if (err.code === 'ENOENT') {
+            const dates = getDates();
 
-    await writer.write();
+            const provider = new NBUDataProvider(dates);
+            const processor = new NBUDataProcessor();
+            const writer = new FileWriter(provider, processor, path);
+
+            await writer.write();
+        } else {
+            console.error("error while file writing (writeFile function):", err);
+        }
+    }
 }
 
 module.exports = {writeFile};
