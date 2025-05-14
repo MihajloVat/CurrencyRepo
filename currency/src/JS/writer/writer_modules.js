@@ -1,5 +1,5 @@
 const {NBU_URL_BASE, NBU_URL_SUFFIX} = require('./writer_config')
-const path = require("node:path");
+const {MONTH_BACK} = require('./writer_config')
 const fs = require('fs').promises;
 
 class DataProvider {
@@ -89,9 +89,9 @@ class NBUDataProcessor extends DataProcessor {
 
 
 class NBUProcUpdater extends DataUpdater {
-    constructor(oldData, depth) {
+    constructor(oldData, diff) {
         super();
-        this.depth = depth;
+        this.diff = diff;
         this.oldData = oldData;
     }
 
@@ -100,14 +100,19 @@ class NBUProcUpdater extends DataUpdater {
 
         const oldDates = this.oldData.dates || [];
         const newDates = data.dates || [];
-        const datesStartIndex = Math.min(this.depth, oldDates.length);
+        const datesStartIndex = Math.min(this.diff, oldDates.length);
         updatedData.dates = [...oldDates.slice(datesStartIndex), ...newDates];
 
         for (const key in this.oldData) {
             if (key === 'dates') continue;
             const oldValues = this.oldData[key] || [];
             const newValues = data[key] || [];
-            const valuesStartIndex = Math.min(this.depth, oldValues.length);
+            let valuesStartIndex = null
+            if(oldValues.length >= MONTH_BACK) {
+                valuesStartIndex = Math.min(this.diff, oldValues.length);
+            }else{
+                valuesStartIndex = 0
+            }
             updatedData[key] = [...oldValues.slice(valuesStartIndex), ...newValues];
         }
 
