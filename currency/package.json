@@ -37,7 +37,7 @@
         "deb"
       ],
       "icon": "src/icons/icon.png"
-},
+    },
     "nsis": {
       "oneClick": false,
       "perMachine": true,
@@ -46,5 +46,9 @@
       "createStartMenuShortcut": true,
       "shortcutName": "Currency"
     }
+  },
+  "dependencies": {
+    "awesomplete": "^1.1.7",
+    "plotly.js-dist-min": "^3.0.1"
   }
 }
