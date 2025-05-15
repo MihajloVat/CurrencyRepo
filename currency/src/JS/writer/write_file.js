@@ -2,7 +2,7 @@ const fs = require('fs').promises;
 const {getDates, getMonthsDifference} = require("./dates_tools");
 const {NBUDataProvider, NBUProcUpdater, NBUDataProcessor, FileWriter} = require("./writer_modules");
 
-async function writeFile(path) {
+async function updateFile(path) {
     try {
         await fs.access(path);
 
@@ -44,4 +44,4 @@ async function writeFile(path) {
     }
 }
 
-module.exports = {writeFile};
+module.exports = {updateFile};

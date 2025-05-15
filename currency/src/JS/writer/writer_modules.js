@@ -14,12 +14,6 @@ class DataProcessor {
     }
 }
 
-class DataUpdater {
-    process(newChunk) {
-        throw new Error('Method not implemented');
-    }
-}
-
 class FileWriter {
     constructor(providerInstance, processorInstance, filePath) {
         this.providerInstance = providerInstance;
@@ -88,7 +82,7 @@ class NBUDataProcessor extends DataProcessor {
 }
 
 
-class NBUProcUpdater extends DataUpdater {
+class NBUProcUpdater extends DataProcessor {
     constructor(oldData, diff) {
         super();
         this.diff = diff;
@@ -108,9 +102,9 @@ class NBUProcUpdater extends DataUpdater {
             const oldValues = this.oldData[key] || [];
             const newValues = data[key] || [];
             let valuesStartIndex = null
-            if(oldValues.length >= MONTH_BACK) {
+            if (oldValues.length >= MONTH_BACK) {
                 valuesStartIndex = Math.min(this.diff, oldValues.length);
-            }else{
+            } else {
                 valuesStartIndex = 0
             }
             updatedData[key] = [...oldValues.slice(valuesStartIndex), ...newValues];
