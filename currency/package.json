@@ -1,14 +1,14 @@
 {
-  "name": "mycurr",
+  "name": "currency",
   "version": "1.0.1",
   "main": "src/JS/main/main.js",
   "scripts": {
     "start": "electron . --no--sandbox",
     "build": "electron-builder"
   },
-  "author": "Mike Vatolkin",
-  "license": "ISC",
-  "description": "kursach",
+  "author": "MihajloVat",
+  "license": "MIT",
+  "description": "currency_app",
   "devDependencies": {
     "electron": "^33.4.8",
     "electron-builder": "^25.1.8"
