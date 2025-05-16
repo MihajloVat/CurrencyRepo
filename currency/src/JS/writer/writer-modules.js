@@ -1,5 +1,5 @@
-const {NBU_URL_BASE, NBU_URL_SUFFIX} = require('./writer_config')
-const {MONTH_BACK} = require('./writer_config')
+const {NBU_URL_BASE, NBU_URL_SUFFIX} = require('./config')
+const {MONTH_BACK} = require('./config')
 const fs = require('fs').promises;
 
 class DataProvider {

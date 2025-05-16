@@ -1,5 +1,5 @@
-const {updateFile} = require('../writer/write_file')
-const {dataFilePath} = require('./data_path')
+const {updateFile} = require('../writer/write-function')
+const {dataFilePath} = require('./data-path')
 const {app, BrowserWindow, ipcMain} = require('electron');
 const path = require('path');
 const fs = require('fs').promises;
