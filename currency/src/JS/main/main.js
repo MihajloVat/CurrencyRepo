@@ -4,6 +4,7 @@ const {app, BrowserWindow, ipcMain} = require('electron');
 const path = require('path');
 const fs = require('fs').promises;
 
+
 const createWindow = () => {
     const win = new BrowserWindow({
         width: 1000,
@@ -22,19 +23,17 @@ const createWindow = () => {
 };
 
 app.whenReady().then(async () => {
-    try {
-        await updateFile(dataFilePath)
+    await updateFile(dataFilePath)
 
-        const fileData = await fs.readFile(dataFilePath, 'utf-8');
+    const fileData = await fs.readFile(dataFilePath, 'utf-8');
 
-        ipcMain.handle('get-file-data', () => {
-            return fileData
-        });
+    ipcMain.handle('get-file-data', () => {
+        return fileData
+    });
 
-        createWindow();
-    } catch (err) {
-        console.log(err);
-    }
+    createWindow();
+}).catch(error => {
+    console.error(error)
 });
 
 app.on('window-all-closed', () => {
