@@ -1,39 +1,54 @@
-function logger(fn, level = "INFO") {
-    return function (...args) {
+const fs = require('fs').promises;
+const path = require('path');
+
+const LOG_PATH = "./debug/logs"
+
+function logDecorator(fn, level = "INFO", logPath = LOG_PATH) {
+
+    return (...args) => {
         const timestamp = new Date().toISOString();
-        const isAsync = fn.constructor.name === "AsyncFunction";
 
-        if (level === "DEBUG" || level === "INFO") {
-            console.log(`[${timestamp}] [${level}] Calling ${fn.name} with args:`, args);
-        }
+        const start = Date.now();
 
-        try {
-            const result = fn(...args);
-
-            if (isAsync && result instanceof Promise) {
-                return result
-                    .then(res => {
-                        if (level === "DEBUG") {
-                            console.log(`[${timestamp}] [${level}] ${fn.name} returned:`, res);
-                        }
-                        return res;
-                    })
-                    .catch(err => {
-                        console.error(`[${timestamp}] [ERROR] ${fn.name} threw async error:`, err.message);
-                        throw err;
-                    });
-            } else {
-                if (level === "DEBUG") {
-                    console.log(`[${timestamp}] [${level}] ${fn.name} returned:`, result);
-                }
-                return result;
+        const logToFile = async (lvl,info) => {
+            const logText = `[${timestamp}]/[${lvl}]/${info}\n`;
+            try {
+                await fs.mkdir(path.dirname(logPath), {recursive: true});
+                await fs.appendFile(logPath, logText);
+            } catch (err) {
+                console.error("Failed to write log:", err.message);
             }
+        };
 
-        } catch (err) {
-            console.error(`[${timestamp}] [ERROR] ${fn.name} threw error:`, err.message);
+        const handleResult = (res) => {
+            const basicInfo = `[${fn.name}]/[ARGS: (${JSON.stringify(...args)})]`
+            if (level === "DEBUG") {
+                const execTime = Date.now() - start;
+                const extraInfo = `[RES: ${JSON.stringify(res)}]/[TIME:${execTime}ms]`;
+                logToFile('DEBUG',`${basicInfo}/${extraInfo}`);
+            } else {
+                logToFile('INFO',`${basicInfo}`);
+            }
+            return res;
+        };
+
+        const handleError = (err) => {
+            logToFile('ERROR',`[${fn.name}]/[${err.message}]`);
             throw err;
+        };
+
+        const result = fn(...args);
+        if (result instanceof Promise) {
+            return result.then(handleResult).catch(handleError);
+        } else {
+            try {
+                return handleResult(result);
+            } catch (err) {
+                handleError(err)
+            }
         }
     };
 }
 
-module.exports = { logger };
+
+module.exports = {logDecorator};

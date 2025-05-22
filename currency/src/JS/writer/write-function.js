@@ -1,6 +1,8 @@
 const fs = require('fs').promises;
 const {getDates, getMonthsDifference} = require("./dates_tools");
 const {NBUDataProvider, NBUProcUpdater, NBUDataProcessor, FileWriter} = require("./writer-modules");
+const {logDecorator} = require("../utils/log-decorator");
+
 
 async function updateFile(path) {
     try {
@@ -13,8 +15,6 @@ async function updateFile(path) {
 
         const difference = getMonthsDifference(lastDateStr);
 
-        console.log('exists');
-
         if (difference !== 0) {
             const dates = getDates(difference);
             const provider = new NBUDataProvider(dates);
@@ -23,7 +23,6 @@ async function updateFile(path) {
 
             await writer.write();
 
-            console.log('updated');
         }
 
     } catch (err) {
@@ -36,12 +35,10 @@ async function updateFile(path) {
 
             await writer.write();
 
-            console.log('written');
-
         } else {
             console.error("error while file writing (writeFile function):", err);
         }
     }
 }
 
-module.exports = {updateFile};
+module.exports = {updateFile: logDecorator(updateFile, 'DEBUG')};

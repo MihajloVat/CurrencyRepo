@@ -23,6 +23,7 @@ const createWindow = () => {
 };
 
 app.whenReady().then(async () => {
+
     await updateFile(dataFilePath)
 
     const fileData = await fs.readFile(dataFilePath, 'utf-8');
