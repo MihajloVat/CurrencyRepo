@@ -1,7 +1,7 @@
 const fs = require('fs').promises;
 const path = require('path');
 
-const LOG_PATH = "./debug/logs"
+const LOG_PATH = "./debug/logs.jsonl";
 
 function getCallerFile() {
     const err = new Error();
@@ -20,11 +20,15 @@ function logDecorator(fn, level = "INFO", logPath = LOG_PATH) {
 
     return (...args) => {
         const timestamp = new Date().toISOString();
-
         const start = Date.now();
 
-        const logToFile = async (lvl,info) => {
-            const logText = `[${timestamp}]/[${lvl}]/${info}\n`;
+        const logToFile = async (level, infoObj) => {
+            const logEntry = {
+                timestamp,
+                level,
+                ...infoObj
+            };
+            const logText = JSON.stringify(logEntry) + "\n";
             try {
                 await fs.mkdir(path.dirname(logPath), {recursive: true});
                 await fs.appendFile(logPath, logText);
@@ -34,22 +38,32 @@ function logDecorator(fn, level = "INFO", logPath = LOG_PATH) {
         };
 
         const handleResult = (res) => {
-            const strArgs = JSON.stringify(...args)
-            const basicInfo = `[${fn.name}]/[ARGS: (${strArgs})]`
+            const call = getCallerFile();
+            const infoObj = {
+                function: fn.name,
+                args: args,
+            };
+
             if (level === "DEBUG") {
                 const execTime = Date.now() - start;
-                const strRes = JSON.stringify(res)
-                const call = getCallerFile();
-                const extraInfo = `[RES: ${strRes}]/[CALL: ${call}]/[TIME:${execTime}ms]`;
-                logToFile('DEBUG',`${basicInfo}/${extraInfo}`);
+                Object.assign(infoObj, {
+                    result: res,
+                    caller: call,
+                    execTimeMs: execTime
+                });
+                logToFile("DEBUG", infoObj);
             } else {
-                logToFile('INFO',`${basicInfo}`);
+                logToFile("INFO", infoObj);
             }
             return res;
         };
 
         const handleError = (err) => {
-            logToFile('ERROR',`[${fn.name}]/[${err.message}]`);
+            const infoObj = {
+                function: fn.name,
+                error: err.message
+            };
+            logToFile("ERROR", infoObj);
             throw err;
         };
 
@@ -60,11 +74,10 @@ function logDecorator(fn, level = "INFO", logPath = LOG_PATH) {
             try {
                 return handleResult(result);
             } catch (err) {
-                handleError(err)
+                handleError(err);
             }
         }
     };
 }
-
 
 module.exports = {logDecorator};
