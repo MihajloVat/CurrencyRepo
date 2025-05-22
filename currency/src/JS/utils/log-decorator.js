@@ -3,6 +3,19 @@ const path = require('path');
 
 const LOG_PATH = "./debug/logs"
 
+function getCallerFile() {
+    const err = new Error();
+    const stack = err.stack.split('\n');
+    const callerLine = stack[3];
+
+    const match = callerLine.match(/\((.*):\d+:\d+\)/) || callerLine.match(/at (.*):\d+:\d+/);
+    if (match) {
+        return path.basename(match[1]);
+    }
+
+    return null;
+}
+
 function logDecorator(fn, level = "INFO", logPath = LOG_PATH) {
 
     return (...args) => {
@@ -21,10 +34,13 @@ function logDecorator(fn, level = "INFO", logPath = LOG_PATH) {
         };
 
         const handleResult = (res) => {
-            const basicInfo = `[${fn.name}]/[ARGS: (${JSON.stringify(...args)})]`
+            const strArgs = JSON.stringify(...args)
+            const basicInfo = `[${fn.name}]/[ARGS: (${strArgs})]`
             if (level === "DEBUG") {
                 const execTime = Date.now() - start;
-                const extraInfo = `[RES: ${JSON.stringify(res)}]/[TIME:${execTime}ms]`;
+                const strRes = JSON.stringify(res)
+                const call = getCallerFile();
+                const extraInfo = `[RES: ${strRes}]/[CALL: ${call}]/[TIME:${execTime}ms]`;
                 logToFile('DEBUG',`${basicInfo}/${extraInfo}`);
             } else {
                 logToFile('INFO',`${basicInfo}`);
