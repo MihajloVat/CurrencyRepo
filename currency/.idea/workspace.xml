@@ -5,14 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="adb5ce4e-8b60-4493-a06b-f41237987c67" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/JS/utils/log-decorator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JS/main/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/JS/main/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JS/writer/write-function.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/JS/writer/write-function.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/JS/render/switch-button/switch.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JS/render/input/input-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/JS/render/plot-page/input/input-list.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JS/render/listeners/buttons.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/JS/render/plot-page/listeners/buttons.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JS/render/plot/draw-plot.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/JS/render/plot-page/plot/draw-plot.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JS/render/plot/plot-template.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/JS/render/plot-page/plot/plot-template.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JS/render/stats/stats_update.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/JS/render/plot-page/stats/stats_update.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/plot-page.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +54,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;JavaScript Debug.index.html.executor&quot;: &quot;Run&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;Node.js.main.js.executor&quot;: &quot;Run&quot;,
     &quot;Node.js.test.js.executor&quot;: &quot;Run&quot;,
@@ -67,6 +70,11 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\vatol\OneDrive\Робочий стіл\CurrencyRepo\currency\src\JS\render\plot-page" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -94,6 +102,12 @@
       <workItem from="1747871020981" duration="7637000" />
       <workItem from="1747879586908" duration="159000" />
       <workItem from="1747879837856" duration="57000" />
+      <workItem from="1747911272450" duration="801000" />
+      <workItem from="1747912489809" duration="234000" />
+      <workItem from="1747916870593" duration="882000" />
+      <workItem from="1747935528540" duration="4119000" />
+      <workItem from="1747955197812" duration="2251000" />
+      <workItem from="1747959268710" duration="187000" />
     </task>
     <servers />
   </component>

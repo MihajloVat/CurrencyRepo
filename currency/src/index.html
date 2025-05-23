@@ -10,51 +10,60 @@
 
 </head>
 <body>
-<div class="plot-page">
-    <div class="plot-div" id="plot"></div>
+<div class="page-wrapper">
+    <div class="plot-page">
+        <div class="plot-div" id="plot"></div>
 
-    <div class="sidebar">
-        <div class="input-container">
-            <input
-                    type="text"
-                    id="currency-input"
-                    placeholder="Введіть валюту..."
-                    autocomplete="off"
-            />
-        </div>
+        <div class="sidebar">
+            <div class="input-container">
+                <input
+                        type="text"
+                        id="currency-input"
+                        placeholder="Введіть валюту..."
+                        autocomplete="off"
+                />
+            </div>
 
-        <div class="stats-box" id="stats">
-            <div class="stat-line">
-                Валюта:
-                <div class="stat-value" id="currency-code">—</div>
+            <div class="stats-box" id="stats">
+                <div class="stat-line">
+                    Валюта:
+                    <div class="stat-value" id="currency-code">—</div>
+                </div>
+                <div class="stat-line">
+                    Проміжок:
+                    <div class="stat-value" id="dates-range">—</div>
+                </div>
+                <div class="stat-line">
+                    Мінімум:
+                    <div class="stat-value" id="min-value">—</div>
+                </div>
+                <div class="stat-line">
+                    Максимум:
+                    <div class="stat-value" id="max-value">—</div>
+                </div>
+                <div class="stat-line">
+                    Середнє:
+                    <div class="stat-value" id="avg-value">—</div>
+                </div>
             </div>
-            <div class="stat-line">
-                Проміжок:
-                <div class="stat-value" id="dates-range">—</div>
-            </div>
-            <div class="stat-line">
-                Мінімум:
-                <div class="stat-value" id="min-value">—</div>
-            </div>
-            <div class="stat-line">
-                Максимум:
-                <div class="stat-value" id="max-value">—</div>
-            </div>
-            <div class="stat-line">
-                Середнє:
-                <div class="stat-value" id="avg-value">—</div>
+
+            <div class="button-container">
+                <button id="switch-button">Калькулятор</button>
             </div>
         </div>
     </div>
-</div>
 
+    <div class="calculator-page">
+        <p>lorem ipsum dolor sit amet consectetur adipisicing elit sed eiusmod tempor.</p></div>
+</div>
 <script src="JS/render/exposer/expose-data.js"></script>
 <script src="JS/main/main.js"></script>
-<script src="JS/render/input/input-list.js"></script>
-<script src="JS/render/plot/plot-template.js"></script>
-<script src="JS/render/plot/draw-plot.js"></script>
-<script src="JS/render/stats/stats_update.js"></script>
-<script src="JS/render/listeners/buttons.js"></script>
-<link rel="stylesheet" href="styles/plot-page.css"/>
+<script src="JS/render/plot-page/input/input-list.js"></script>
+<script src="JS/render/plot-page/plot/plot-template.js"></script>
+<script src="JS/render/plot-page/plot/draw-plot.js"></script>
+<script src="JS/render/plot-page/stats/stats_update.js"></script>
+<script src="JS/render/plot-page/listeners/buttons.js"></script>
+<script src="JS/render/switch-button/switch.js"></script>
+<link rel="stylesheet" href="styles/styles.css"/>
 </body>
 </html>
