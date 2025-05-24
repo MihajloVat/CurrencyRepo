@@ -326,6 +326,10 @@ body {
     z-index: 10; /* Переконаємося, що кнопка поверх інших елементів */
 }
 
+#switch-button2:hover {
+    background-color: #0056b3;
+}
+
 /* Приховуємо стандартні стрілки для input type="number" */
 
 input[type="number"]::-webkit-outer-spin-button,
