@@ -49,6 +49,7 @@
   },
   "dependencies": {
     "awesomplete": "^1.1.7",
+    "is-online": "^11.0.0",
     "plotly.js-dist-min": "^3.0.1"
   }
 }

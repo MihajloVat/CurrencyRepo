@@ -5,16 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="adb5ce4e-8b60-4493-a06b-f41237987c67" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/JS/render/switch-button/switch.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/JS/utils/inet-allert.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JS/render/input/input-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/JS/render/plot-page/input/input-list.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JS/render/listeners/buttons.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/JS/render/plot-page/listeners/buttons.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JS/render/plot/draw-plot.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/JS/render/plot-page/plot/draw-plot.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JS/render/plot/plot-template.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/JS/render/plot-page/plot/plot-template.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JS/render/stats/stats_update.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/JS/render/plot-page/stats/stats_update.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JS/main/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/JS/main/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JS/utils/log-decorator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/JS/utils/logger.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JS/writer/write-function.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/JS/writer/write-function.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JS/writer/writer-modules.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/JS/writer/writer-modules.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/plot-page.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,6 +108,16 @@
       <workItem from="1747935528540" duration="4119000" />
       <workItem from="1747955197812" duration="2251000" />
       <workItem from="1747959268710" duration="187000" />
+      <workItem from="1747959625838" duration="118000" />
+      <workItem from="1747959928635" duration="1361000" />
+      <workItem from="1747985438442" duration="4802000" />
+      <workItem from="1748030242383" duration="1025000" />
+      <workItem from="1748031513594" duration="4606000" />
+      <workItem from="1748038521667" duration="27000" />
+      <workItem from="1748090473373" duration="6402000" />
+      <workItem from="1748097378959" duration="1347000" />
+      <workItem from="1748098893364" duration="807000" />
+      <workItem from="1748099986652" duration="943000" />
     </task>
     <servers />
   </component>

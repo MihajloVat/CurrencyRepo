@@ -1,6 +1,6 @@
 const {updateFile} = require('../writer/write-function')
 const {dataFilePath} = require('./data-path')
-const {app, BrowserWindow, ipcMain} = require('electron');
+const {app, BrowserWindow, dialog, ipcMain} = require('electron');
 const path = require('path');
 const fs = require('fs').promises;
 
@@ -19,12 +19,12 @@ const createWindow = () => {
     win.setTitle('Currency');
     win.loadFile(path.join(__dirname, '..', '..', 'index.html'));
 
-// win.webContents.openDevTools();
+    win.webContents.openDevTools();
 };
 
 app.whenReady().then(async () => {
 
-    await updateFile(dataFilePath)
+    await updateFile(dataFilePath);
 
     const fileData = await fs.readFile(dataFilePath, 'utf-8');
 

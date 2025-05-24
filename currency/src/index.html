@@ -13,7 +13,6 @@
 <div class="page-wrapper">
     <div class="plot-page">
         <div class="plot-div" id="plot"></div>
-
         <div class="sidebar">
             <div class="input-container">
                 <input
@@ -46,7 +45,6 @@
                     <div class="stat-value" id="avg-value">—</div>
                 </div>
             </div>
-
             <div class="button-container">
                 <button id="switch-button">Калькулятор</button>
             </div>
@@ -54,16 +52,42 @@
     </div>
 
     <div class="calculator-page">
-        <p>lorem ipsum dolor sit amet consectetur adipisicing elit sed eiusmod tempor.</p></div>
+        <h2>Конвертер валют</h2>
+        <div class="converter-container">
+            <div class="currency-input-box">
+                <p class="box-label">Я маю</p>
+                <div class="amount-row">
+                    <input type="number" id="from-amount-input" value="1" min="0" step="any"/>
+                    <input type="text" id="from-currency-code" class="currency-code-input" placeholder="USD"
+                           autocomplete="off"/>
+                    <span class="currency-dropdown-arrow">&#9660;</span></div>
+                <p class="conversion-rate" id="from-conversion-rate">1 USD = 41.1 UAH</p>
+            </div>
+            <button id="swap-button" class="swap-button">&#8644;</button>
+            <div class="currency-input-box">
+                <p class="box-label">Я отримаю</p>
+                <div class="amount-row">
+                    <input type="text" id="to-amount-output" value="41.1" readonly/> <input type="text"
+                                                                                            id="to-currency-code"
+                                                                                            class="currency-code-input"
+                                                                                            placeholder="UAH"
+                                                                                            autocomplete="off"/>
+                    <span class="currency-dropdown-arrow">&#9660;</span></div>
+                <p class="conversion-rate" id="to-conversion-rate">1 UAH = 0.0243 USD</p>
+            </div>
+        </div>
+        <button id="switch-button2">Статистика</button>
+    </div>
+    <script src="JS/render/exposer/expose-data.js"></script>
+    <script src="JS/main/main.js"></script>
+    <script src="JS/render/plot-page/input/input-list.js"></script>
+    <script src="JS/render/plot-page/plot/plot-template.js"></script>
+    <script src="JS/render/plot-page/plot/draw-plot.js"></script>
+    <script src="JS/render/plot-page/stats/stats_update.js"></script>
+    <script src="JS/render/plot-page/listeners/buttons.js"></script>
+    <script src="JS/render/switch-button/switch.js"></script>
+    <link rel="stylesheet" href="styles/styles.css"/>
 </div>
-<script src="JS/render/exposer/expose-data.js"></script>
-<script src="JS/main/main.js"></script>
-<script src="JS/render/plot-page/input/input-list.js"></script>
-<script src="JS/render/plot-page/plot/plot-template.js"></script>
-<script src="JS/render/plot-page/plot/draw-plot.js"></script>
-<script src="JS/render/plot-page/stats/stats_update.js"></script>
-<script src="JS/render/plot-page/listeners/buttons.js"></script>
-<script src="JS/render/switch-button/switch.js"></script>
-<link rel="stylesheet" href="styles/styles.css"/>
 </body>
+
 </html>

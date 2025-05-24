@@ -1,5 +1,5 @@
 /* ======================================= */
-/* 1. ЗАГАЛЬНІ СТИЛІ           */
+/* 1. ЗАГАЛЬНІ СТИЛІ */
 /* ======================================= */
 body {
     margin: 0;
@@ -11,7 +11,7 @@ body {
 }
 
 /* ======================================= */
-/* 2. СТИЛІ СТОРІНОК           */
+/* 2. СТИЛІ СТОРІНОК */
 /* ======================================= */
 
 /* Контейнер для всіх сторінок, щоб керувати їх відображенням */
@@ -180,8 +180,160 @@ body {
 /* 4. СТИЛІ ДЛЯ CALCULATOR PAGE ВНУТРІШНІ КОМПОНЕНТИ */
 /* ======================================= */
 
-.calculator-page p {
-    font-size: 24px;
-    color: #555;
+.calculator-page .button-container {
+    margin-top: 25px; /* Додаємо відступ зверху */
+    width: 100%;
+    max-width: 600px; /* Обмежимо ширину відповідно до converter-container */
+    padding-left: 70px; /* ДОДАЄМО PADDING, щоб вирівняти з converter-container */
+    padding-right: 0; /* Вимикаємо padding справа */
+    box-sizing: border-box; /* Включаємо padding */
+    margin-left: -120px; /* ЗМІЩУЄМО так само, як converter-container */
+    position: relative;
+}
+
+
+.calculator-page h2 {
+    margin-top: 0;
+    margin-bottom: 25px; /* Збільшимо відступ від заголовка */
+    color: #333;
+    font-size: 28px;
     text-align: center;
+}
+
+
+.converter-container {
+    display: flex; /* Робимо контейнер flex, щоб розмістити блоки і кнопку */
+    flex-direction: column; /* Блоки валют будуть розташовані вертикально */
+    gap: 15px; /* Проміжок між блоками валют */
+    align-items: center; /* Центруємо блоки валют по горизонталі в цьому контейнері */
+    position: relative; /* Важливо для позиціонування кнопки обміну */
+    width: 100%;
+    max-width: 600px; /* Обмеження загальної ширини контейнера конвертера */
+    padding-left: 70px; /* ДОДАЄМО ВІДСТУП ЗЛІВА для кнопки обміну */
+    padding-right: 0; /* ВИДАЛЯЄМО відступ справа */
+    box-sizing: border-box; /* Включаємо padding у ширину */
+    margin-left: -120px; /* ЗМІЩЕННЯ ВПРАВО: змінено на позитивне значення */
+}
+
+.currency-input-box {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px 20px;
+    width: 100%; /* Тепер вони займають 100% ширини converter-container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+    box-sizing: border-box; /* Переконаємося, що padding включено у ширину */
+}
+
+.box-label {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.amount-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.amount-row input[type="number"],
+.amount-row input[type="text"] {
+    border: none;
+    outline: none;
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+    padding: 0;
+    flex: 1;
+    min-width: 0;
+}
+
+.amount-row input[type="text"].currency-code-input {
+    flex: 0 0 auto;
+    width: 60px;
+    text-align: right;
+    font-size: 24px;
+    color: #777;
+    cursor: pointer;
+}
+
+.currency-dropdown-arrow {
+    font-size: 14px;
+    color: #777;
+    cursor: pointer;
+    margin-left: -5px;
+}
+
+.conversion-rate {
+    font-size: 14px;
+    color: #777;
+    margin-top: 10px;
+    text-align: left;
+}
+
+/* Стилі для кнопки обміну валют */
+
+#swap-button {
+    background-color: #e0e0e0;
+    color: #555;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    /* ЗМІНЕНО: Позиціонування для кнопки обміну */
+    position: absolute; /* Позиціонуємо абсолютно відносно .converter-container */
+    left: 0; /* ЗМІЩУЄМО ДО ЛІВОГО КРАЮ .converter-container */
+    right: auto; /* Вимикаємо 'right' */
+    top: 50%; /* Розміщуємо по центру вертикалі */
+    transform: translateY(-50%); /* Коригуємо позицію, щоб центр кнопки був точно по центру */
+}
+
+#swap-button:hover {
+    background-color: #d0d0d0;
+    transform: translateY(-50%) rotate(90deg); /* Комбінуємо трансформації */
+}
+
+#switch-button2 {
+    position: absolute; /* Абсолютне позиціонування */
+    top: 387px; /* Відступ від верхнього краю (налаштуй за потребою) */
+    right: 8px; /* Відступ від правого краю (налаштуй за потребою) */
+    width: 220px;
+    height: 61px;/* Ширина кнопки (налаштуй за потребою) */
+    padding: 20px 14px;
+    box-sizing: border-box;
+    font-size: 18px;
+    background-color: #007bff; /* Синій фон */
+    color: white; /* Білий текст */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 10; /* Переконаємося, що кнопка поверх інших елементів */
+}
+
+/* Приховуємо стандартні стрілки для input type="number" */
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield; /* Firefox */
 }

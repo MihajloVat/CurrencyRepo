@@ -24,9 +24,12 @@ class FileWriter {
     async write() {
         try {
             const rawData = await this.providerInstance.getData();
-            const processedData = this.processorInstance.process(rawData);
 
-            console.log(processedData);
+            if(!rawData) {
+                //some function
+            }
+            
+            const processedData = this.processorInstance.process(rawData);
 
             await fs.writeFile(this.filePath, JSON.stringify(processedData, null, 2));
         } catch (err) {

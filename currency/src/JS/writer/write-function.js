@@ -1,7 +1,7 @@
 const fs = require('fs').promises;
 const {getDates, getMonthsDifference} = require("./dates_tools");
 const {NBUDataProvider, NBUProcUpdater, NBUDataProcessor, FileWriter} = require("./writer-modules");
-const {logDecorator} = require("../utils/log-decorator");
+const {logDecorator} = require("../utils/logger");
 
 
 async function updateFile(path) {

@@ -9,6 +9,9 @@ function getCallerFile() {
     const callerLine = stack[3];
 
     const match = callerLine.match(/\((.*):\d+:\d+\)/) || callerLine.match(/at (.*):\d+:\d+/);
+
+    //console.log(new Error().stack);
+
     if (match) {
         return path.basename(match[1]);
     }
@@ -16,11 +19,16 @@ function getCallerFile() {
     return null;
 }
 
-function logDecorator(fn, level = "INFO", logPath = LOG_PATH) {
+function logger(fn, level = "INFO", logPath = LOG_PATH) {
 
     return (...args) => {
         const timestamp = new Date().toISOString();
         const start = Date.now();
+
+        const infoObj = {
+            function: fn.name,
+            args: args,
+        };
 
         const logToFile = async (level, infoObj) => {
             const logEntry = {
@@ -39,10 +47,6 @@ function logDecorator(fn, level = "INFO", logPath = LOG_PATH) {
 
         const handleResult = (res) => {
             const call = getCallerFile();
-            const infoObj = {
-                function: fn.name,
-                args: args,
-            };
 
             if (level === "DEBUG") {
                 const execTime = Date.now() - start;
@@ -59,10 +63,9 @@ function logDecorator(fn, level = "INFO", logPath = LOG_PATH) {
         };
 
         const handleError = (err) => {
-            const infoObj = {
-                function: fn.name,
-                error: err.message
-            };
+            Object.assign(infoObj, {
+                error:err.message ,
+            });
             logToFile("ERROR", infoObj);
             throw err;
         };
@@ -80,4 +83,4 @@ function logDecorator(fn, level = "INFO", logPath = LOG_PATH) {
     };
 }
 
-module.exports = {logDecorator};
+module.exports = {logDecorator: logger};
