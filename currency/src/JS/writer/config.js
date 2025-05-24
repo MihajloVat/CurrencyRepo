@@ -1,4 +1,4 @@
-//used in writer-modules.js (NBU data provider)
+//used in update-modules.js (NBU data provider)
 const NBU_URL_BASE = `https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?date=`
 const NBU_URL_SUFFIX = `&json`
 
