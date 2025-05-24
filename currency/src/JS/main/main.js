@@ -1,5 +1,6 @@
 const {updateFile} = require('../writer/write-function')
 const {dataFilePath} = require('./data-path')
+const {checkInternet} = require('../utils/check-inet')
 const {app, BrowserWindow, dialog, ipcMain} = require('electron');
 const path = require('path');
 const fs = require('fs').promises;
@@ -23,6 +24,7 @@ const createWindow = () => {
 };
 
 app.whenReady().then(async () => {
+    const isOnline = await checkInternet();
 
     await updateFile(dataFilePath);
 

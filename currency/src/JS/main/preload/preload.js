@@ -1,5 +1,5 @@
 const {contextBridge, ipcRenderer} = require('electron');
-const {formatDates} = require('../../dates-formatter/dates-formatter')
+const {formatDates} = require('../../utils/dates-formatter')
 
 contextBridge.exposeInMainWorld('tools', {
     getFileData: async () => {
