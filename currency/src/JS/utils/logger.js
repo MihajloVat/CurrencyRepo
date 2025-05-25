@@ -1,12 +1,12 @@
 const fs = require('fs').promises;
 const path = require('path');
 
-const LOG_PATH = "./debug/logs.jsonl";
+const LOG_PATH = "C:/Users/vatol/OneDrive/Робочий стіл/CurrencyRepo/currency/debug/logs.jsonl";
 
 const getCallerFile = () => {
     const err = new Error();
     const stack = err.stack.split('\n');
-    const callerLine = stack[3];
+    const callerLine = stack[4];
 
     const match = callerLine.match(/\((.*):\d+:\d+\)/) || callerLine.match(/at (.*):\d+:\d+/);
 

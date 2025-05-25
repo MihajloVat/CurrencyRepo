@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="adb5ce4e-8b60-4493-a06b-f41237987c67" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JS/main/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/JS/main/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JS/writer/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/JS/writer/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JS/writer/write-function.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/JS/writer/update-function.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JS/writer/writer-modules.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/JS/writer/update-modules.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JS/render/switch-button/switch.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/JS/render/switch-button/switch.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JS/utils/logger.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/JS/utils/logger.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +116,17 @@
       <workItem from="1748099986652" duration="2893000" />
       <workItem from="1748115894127" duration="1511000" />
       <workItem from="1748117863529" duration="1048000" />
-      <workItem from="1748120129582" duration="425000" />
+      <workItem from="1748120129582" duration="2871000" />
+      <workItem from="1748131589831" duration="1231000" />
+      <workItem from="1748132844353" duration="12000" />
+      <workItem from="1748132908805" duration="15000" />
+      <workItem from="1748132933124" duration="131000" />
+      <workItem from="1748133182703" duration="2682000" />
+      <workItem from="1748135899959" duration="2000" />
+      <workItem from="1748137621611" duration="301000" />
+      <workItem from="1748138532628" duration="104000" />
+      <workItem from="1748138732339" duration="6000" />
+      <workItem from="1748138775182" duration="448000" />
     </task>
     <servers />
   </component>
