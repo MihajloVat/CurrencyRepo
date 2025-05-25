@@ -25,10 +25,6 @@ class FileWriter {
         try {
             const rawData = await this.providerInstance.getData();
 
-            if(!rawData) {
-                //some function
-            }
-            
             const processedData = this.processorInstance.process(rawData);
 
             await fs.writeFile(this.filePath, JSON.stringify(processedData, null, 2));

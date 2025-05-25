@@ -1,6 +1,6 @@
 inputField.addEventListener('focus', async () => {
     try {
-        if(!window.fileData){
+        if (!window.fileData) {
             return
         }
         const keys = Object.keys(window.fileData);
@@ -15,10 +15,11 @@ inputField.addEventListener('focus', async () => {
 
 inputField.addEventListener('awesomplete-selectcomplete', async (event) => {
     try {
-        if(!window.fileData){
+        if (!window.fileData) {
             return
         }
         const currCode = event.text.toUpperCase()
+
         drawPlot(currCode, window.fileData)
 
         const statsUpdate = new StatsUpdate(window.fileData, currCode);
@@ -32,7 +33,7 @@ inputField.addEventListener('awesomplete-selectcomplete', async (event) => {
 inputField.addEventListener('keydown', async (event) => {
     if (event.key === 'Enter') {
         try {
-            if(!window.fileData){
+            if (!window.fileData) {
                 return
             }
             const currCode = inputField.value.toUpperCase()

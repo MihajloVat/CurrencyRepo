@@ -4,8 +4,10 @@ const plotPage = document.querySelector('.plot-page');
 const calculatorPage = document.querySelector('.calculator-page');
 
 switchButton.addEventListener('click', () => {
+
     plotPage.classList.add('hidden');
     plotPage.classList.remove('active');
+    
     calculatorPage.classList.remove('hidden');
     calculatorPage.classList.add('active');
 });
