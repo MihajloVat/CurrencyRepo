@@ -3,7 +3,7 @@ const path = require('path');
 
 const LOG_PATH = "./debug/logs.jsonl";
 
-function getCallerFile() {
+const getCallerFile = () => {
     const err = new Error();
     const stack = err.stack.split('\n');
     const callerLine = stack[3];
@@ -19,65 +19,67 @@ function getCallerFile() {
     return null;
 }
 
+const logToFile = async (timestamp, level, infoObj, logPath = LOG_PATH) => {
+    const logEntry = {
+        timestamp,
+        level,
+        ...infoObj
+    };
+    const logText = JSON.stringify(logEntry) + "\n";
+    try {
+        await fs.mkdir(path.dirname(logPath), {recursive: true});
+        await fs.appendFile(logPath, logText);
+    } catch (err) {
+        console.error("Failed to write log:", err.message);
+    }
+};
+
+const handleResult = (res, level, timestamp, startTime, infoObj) => {
+    const call = getCallerFile();
+
+    if (level === "DEBUG") {
+        const execTime = Date.now() - startTime;
+        Object.assign(infoObj, {
+            result: res,
+            caller: call,
+            execTimeMs: execTime
+        });
+        logToFile(timestamp, "DEBUG", infoObj);
+    } else {
+        logToFile(timestamp, "INFO", infoObj);
+    }
+    return res;
+};
+
+const handleError = (err, timestamp, infoObj) => {
+    Object.assign(infoObj, {
+        error: err.message,
+    });
+    logToFile(timestamp, "ERROR", infoObj);
+    throw err;
+};
+
 function logger(fn, level = "INFO", logPath = LOG_PATH) {
 
     return (...args) => {
         const timestamp = new Date().toISOString();
-        const start = Date.now();
+        const startTime = Date.now();
 
         const infoObj = {
             function: fn.name,
             args: args,
-        };
-
-        const logToFile = async (level, infoObj) => {
-            const logEntry = {
-                timestamp,
-                level,
-                ...infoObj
-            };
-            const logText = JSON.stringify(logEntry) + "\n";
-            try {
-                await fs.mkdir(path.dirname(logPath), {recursive: true});
-                await fs.appendFile(logPath, logText);
-            } catch (err) {
-                console.error("Failed to write log:", err.message);
-            }
-        };
-
-        const handleResult = (res) => {
-            const call = getCallerFile();
-
-            if (level === "DEBUG") {
-                const execTime = Date.now() - start;
-                Object.assign(infoObj, {
-                    result: res,
-                    caller: call,
-                    execTimeMs: execTime
-                });
-                logToFile("DEBUG", infoObj);
-            } else {
-                logToFile("INFO", infoObj);
-            }
-            return res;
-        };
-
-        const handleError = (err) => {
-            Object.assign(infoObj, {
-                error:err.message ,
-            });
-            logToFile("ERROR", infoObj);
-            throw err;
-        };
+        }
 
         const result = fn(...args);
         if (result instanceof Promise) {
-            return result.then(handleResult).catch(handleError);
+            return result
+                .then((res) => handleResult(res, level, timestamp, startTime, infoObj))
+                .catch((err) => handleError(err, timestamp, infoObj));
         } else {
             try {
-                return handleResult(result);
+                return handleResult(result, level, timestamp, startTime, infoObj);
             } catch (err) {
-                handleError(err);
+                handleError(err, timestamp, infoObj);
             }
         }
     };
