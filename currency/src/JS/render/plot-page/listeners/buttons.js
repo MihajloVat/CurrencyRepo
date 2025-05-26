@@ -5,9 +5,9 @@ inputField.addEventListener('focus', async () => {
         }
         const keys = Object.keys(window.fileData);
         keys.shift()
-        awesomplete.list = keys;
-        awesomplete.maxItems = keys.length - 1;
-        awesomplete.evaluate();
+        awesomePlot.list = keys;
+        awesomePlot.maxItems = keys.length - 1;
+        awesomePlot.evaluate();
     } catch (err) {
         console.log(err)
     }

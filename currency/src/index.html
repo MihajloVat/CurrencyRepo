@@ -58,21 +58,23 @@
                 <p class="box-label">Я маю</p>
                 <div class="amount-row">
                     <input type="number" id="from-amount-input" value="1" min="0" step="any"/>
-                    <input type="text" id="from-currency-code" class="currency-code-input" placeholder="USD"
+                    <input type="text" id="from-currency-code" class="currency-code-input" placeholder="..."
                            autocomplete="off"/>
-                    <span class="currency-dropdown-arrow">&#9660;</span></div>
+                </div>
                 <p class="conversion-rate" id="from-conversion-rate">1 USD = 41.1 UAH</p>
             </div>
             <button id="swap-button" class="swap-button">&#8644;</button>
             <div class="currency-input-box">
                 <p class="box-label">Я отримаю</p>
                 <div class="amount-row">
-                    <input type="text" id="to-amount-output" value="41.1" readonly/> <input type="text"
-                                                                                            id="to-currency-code"
-                                                                                            class="currency-code-input"
-                                                                                            placeholder="UAH"
-                                                                                            autocomplete="off"/>
-                    <span class="currency-dropdown-arrow">&#9660;</span></div>
+                    <input type="text" id="to-amount-output" value="41.1" readonly/>
+                    <div class="awesomplete-up"><input type="text"
+                                                       id="to-currency-code"
+                                                       class="currency-code-input"
+                                                       placeholder="..."
+                                                       autocomplete="off"/>
+                    </div>
+                </div>
                 <p class="conversion-rate" id="to-conversion-rate">1 UAH = 0.0243 USD</p>
             </div>
         </div>
@@ -80,11 +82,13 @@
     </div>
     <script src="JS/render/exposer/expose-data.js"></script>
     <script src="JS/main/main.js"></script>
-    <script src="JS/render/plot-page/input/input-list.js"></script>
+    <script src="JS/render/inputs/input-config.js"></script>
     <script src="JS/render/plot-page/plot/plot-template.js"></script>
     <script src="JS/render/plot-page/plot/draw-plot.js"></script>
     <script src="JS/render/plot-page/stats/stats_update.js"></script>
     <script src="JS/render/plot-page/listeners/buttons.js"></script>
+    <script src="JS/render/calc-page/listeners/from-buttons.js"></script>
+    <script src="JS/render/calc-page/listeners/to-buttons.js"></script>
     <script src="JS/render/switch-button/switch.js"></script>
     <link rel="stylesheet" href="styles/styles.css"/>
 </div>

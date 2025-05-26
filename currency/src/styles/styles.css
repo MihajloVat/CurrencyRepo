@@ -151,6 +151,12 @@ body {
     overflow-y: auto;
 }
 
+.awesomplete-up .awesomplete > ul {
+    bottom: 100%;
+    top: auto;
+    margin-bottom: 4px;
+}
+
 /* Стилі для контейнера кнопки */
 .button-container {
     width: 100%;
@@ -330,7 +336,7 @@ body {
     background-color: #0056b3;
 }
 
-/* Приховуємо стандартні стрілки для input type="number" */
+/* Приховуємо стандартні стрілки для inputs type="number" */
 
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
