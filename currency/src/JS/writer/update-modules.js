@@ -57,7 +57,9 @@ class NBUDataProvider extends DataProvider {
 
 class NBUDataProcessor extends DataProcessor {
     process(rawData) {
-        const output = {dates: rawData.dates};
+        const output = {
+            dates: rawData.dates,
+        };
 
         for (const dailyData of rawData.data) {
             for (const currency of dailyData) {

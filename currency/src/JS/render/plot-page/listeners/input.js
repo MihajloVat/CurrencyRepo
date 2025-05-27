@@ -33,9 +33,6 @@ inputField.addEventListener('awesomplete-selectcomplete', async (event) => {
 inputField.addEventListener('keydown', async (event) => {
     if (event.key === 'Enter') {
         try {
-            if (!window.fileData) {
-                return
-            }
             const currCode = inputField.value.toUpperCase()
 
             if (!window.fileData[currCode]) {

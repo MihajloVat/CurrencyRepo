@@ -1,6 +1,6 @@
 const inputField = document.getElementById('currency-input');
-const inputFrom = document.getElementById('from-currency-code');
-const inputTo = document.getElementById('to-currency-code');
+const inputCodeFrom = document.getElementById('from-currency-code');
+const inputCodeTo = document.getElementById('to-currency-code');
 
 const HUGE_NUMBER = 10000
 
@@ -10,13 +10,13 @@ const awesomePlot = new Awesomplete(inputField, {
     minChars: 0
 });
 
-const awesomeFrom = new Awesomplete(inputFrom, {
+const awesomeFrom = new Awesomplete(inputCodeFrom, {
     list: [],
     maxItems: HUGE_NUMBER,
     minChars: 0
 });
 
-const awesomeTo = new Awesomplete(inputTo, {
+const awesomeTo = new Awesomplete(inputCodeTo, {
     list: [],
     maxItems: HUGE_NUMBER,
     minChars: 0
