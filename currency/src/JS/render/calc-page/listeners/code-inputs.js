@@ -30,6 +30,40 @@ inputCodeTo.addEventListener('focus', async () => {
     }
 });
 
+inputCodeFrom.addEventListener('awesomplete-selectcomplete', async () => {
+    inputAmountFrom.dispatchEvent(new Event('input'));
+});
+
+inputCodeTo.addEventListener('awesomplete-selectcomplete', async () => {
+    inputAmountFrom.dispatchEvent(new Event('input'));
+});
+
+inputCodeFrom.addEventListener('keydown', async (event) => {
+    if (event.key === 'Enter') {
+        inputAmountFrom.dispatchEvent(new Event('input'));
+        inputCodeFrom.value = inputCodeFrom.value.toUpperCase();
+        inputCodeFrom.blur();
+    }
+});
+
+inputCodeTo.addEventListener('keydown', async (event) => {
+    if (event.key === 'Enter') {
+        inputAmountFrom.dispatchEvent(new Event('input'));
+        inputCodeTo.value = inputCodeTo.value.toUpperCase();
+        inputCodeTo.blur();
+    }
+});
+
+
+/*
+inputCodeFrom.addEventListener('change', () => {
+    inputAmountFrom.dispatchEvent(new Event('input'));
+});
+-
+inputCodeTo.addEventListener('change', () => {
+    inputAmountFrom.dispatchEvent(new Event('input'));
+});*/
+
 
 
 

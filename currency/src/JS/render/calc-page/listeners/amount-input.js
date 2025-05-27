@@ -9,8 +9,12 @@ inputAmountFrom.addEventListener('input', async () => {
         return
     }
 
-    const codeFrom = inputCodeFrom.value
-    const codeTo = inputCodeTo.value
+    const codeFrom = inputCodeFrom.value.toUpperCase();
+    const codeTo = inputCodeTo.value.toUpperCase();
+
+    if (!codeFrom || !codeTo) {
+        return;
+    }
 
     let rateFrom = null
     let rateTo = null
@@ -27,10 +31,6 @@ inputAmountFrom.addEventListener('input', async () => {
     } else {
         const codeToData = window.fileData[codeTo]
         rateTo = codeToData[codeToData.length - 1]
-    }
-
-    if (!rateFrom || !rateTo) {
-        return
     }
 
     const res = amount * rateFrom / rateTo
