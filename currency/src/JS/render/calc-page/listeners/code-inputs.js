@@ -55,15 +55,5 @@ inputCodeTo.addEventListener('keydown', async (event) => {
 });
 
 
-/*
-inputCodeFrom.addEventListener('change', () => {
-    inputAmountFrom.dispatchEvent(new Event('input'));
-});
--
-inputCodeTo.addEventListener('change', () => {
-    inputAmountFrom.dispatchEvent(new Event('input'));
-});*/
-
-
 
 

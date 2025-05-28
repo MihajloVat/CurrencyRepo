@@ -1,11 +1,10 @@
 const swapButton = document.getElementById('swap-button');
 
 swapButton.addEventListener('click', async () => {
-    const upperVal = inputCodeFrom.value
-    const lowerVal = inputCodeTo.value
+    const upperCode = inputCodeFrom.value
 
-    inputCodeFrom.value = lowerVal
-    inputCodeTo.value = upperVal
+    inputCodeFrom.value = inputCodeTo.value
+    inputCodeTo.value = upperCode
 
     inputAmountFrom.dispatchEvent(new Event('input'));
 })
