@@ -1,5 +1,4 @@
-const inputAmountFrom = document.getElementById('from-amount-input');
-const inputAmountTo = document.getElementById('to-amount-output');
+import {inputCodeFrom, inputAmountTo, inputAmountFrom, inputCodeTo} from '../../references/input-refs.js'
 
 inputAmountFrom.addEventListener('input', async () => {
     const amount = inputAmountFrom.value

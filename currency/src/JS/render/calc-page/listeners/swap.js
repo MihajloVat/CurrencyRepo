@@ -1,3 +1,5 @@
+import {inputCodeFrom, inputAmountFrom, inputCodeTo} from '../../references/input-refs.js'
+
 const swapButton = document.getElementById('swap-button');
 
 swapButton.addEventListener('click', async () => {

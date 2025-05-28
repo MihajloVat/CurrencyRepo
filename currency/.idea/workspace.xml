@@ -5,8 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="adb5ce4e-8b60-4493-a06b-f41237987c67" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/JS/render/calc-page/listeners/awesome.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/JS/render/plot-page/listeners/awesome.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/JS/render/references/input-refs.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JS/main/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/JS/main/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JS/render/calc-page/listeners/amount-input.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/JS/render/calc-page/listeners/amount-input.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JS/render/calc-page/listeners/code-inputs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/JS/render/calc-page/listeners/code-inputs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JS/render/calc-page/listeners/swap.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/JS/render/calc-page/listeners/swap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JS/render/inputs/input-config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JS/render/plot-page/listeners/input.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/JS/render/plot-page/listeners/input.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JS/render/plot-page/plot/draw-plot.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/JS/render/plot-page/plot/draw-plot.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JS/render/plot-page/stats/stats_update.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/JS/render/plot-page/stats/stats_update.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,6 +81,7 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\vatol\OneDrive\Робочий стіл\CurrencyRepo\currency\src\JS\render" />
+      <recent name="C:\Users\vatol\OneDrive\Робочий стіл\CurrencyRepo\currency\src\JS\render\calc-page" />
       <recent name="C:\Users\vatol\OneDrive\Робочий стіл\CurrencyRepo\currency\src\JS\render\calc-page\input" />
       <recent name="C:\Users\vatol\OneDrive\Робочий стіл\CurrencyRepo\currency\src\JS\utils" />
       <recent name="C:\Users\vatol\OneDrive\Робочий стіл\CurrencyRepo\currency\src\JS\render\plot-page" />
@@ -155,6 +166,7 @@
       <workItem from="1748454875973" duration="1444000" />
       <workItem from="1748457234416" duration="59000" />
       <workItem from="1748457540945" duration="719000" />
+      <workItem from="1748459544837" duration="3434000" />
     </task>
     <servers />
   </component>

@@ -66,4 +66,6 @@ class StatsUpdate {
     }
 }
 
+export {StatsUpdate};
+
 

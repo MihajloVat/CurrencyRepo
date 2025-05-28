@@ -1,3 +1,6 @@
+import {awesomeFrom, awesomeTo} from "./awesome.js";
+import {inputCodeFrom, inputAmountFrom, inputCodeTo} from '../../references/input-refs.js'
+
 inputCodeFrom.addEventListener('focus', async () => {
     try {
         if (!window.fileData) {

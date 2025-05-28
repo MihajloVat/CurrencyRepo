@@ -39,6 +39,8 @@ function drawPlot(currCode, data) {
     updatePlot(data, currCode, newLayout);
 }
 
+export {drawPlot}
+
 
 
 

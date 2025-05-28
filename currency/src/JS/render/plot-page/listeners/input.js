@@ -1,4 +1,9 @@
-inputField.addEventListener('focus', async () => {
+import {drawPlot} from '../plot/draw-plot.js';
+import {StatsUpdate} from '../stats/stats_update.js';
+import {awesomePlot} from "./awesome.js";
+import {inputPlot} from '../../references/input-refs.js'
+
+inputPlot.addEventListener('focus', async () => {
     try {
         if (!window.fileData) {
             return
@@ -13,7 +18,7 @@ inputField.addEventListener('focus', async () => {
     }
 });
 
-inputField.addEventListener('awesomplete-selectcomplete', async (event) => {
+inputPlot.addEventListener('awesomplete-selectcomplete', async (event) => {
     try {
         if (!window.fileData) {
             return
@@ -24,19 +29,19 @@ inputField.addEventListener('awesomplete-selectcomplete', async (event) => {
 
         const statsUpdate = new StatsUpdate(window.fileData, currCode);
         statsUpdate.updateAll();
-        inputField.value = '';
+        inputPlot.value = '';
     } catch (err) {
         console.log(err)
     }
 });
 
-inputField.addEventListener('keydown', async (event) => {
+inputPlot.addEventListener('keydown', async (event) => {
     if (event.key === 'Enter') {
         try {
-            const currCode = inputField.value.toUpperCase()
+            const currCode = inputPlot.value.toUpperCase()
 
             if (!window.fileData[currCode]) {
-                inputField.value = '';
+                inputPlot.value = '';
                 return
             }
 
@@ -44,9 +49,9 @@ inputField.addEventListener('keydown', async (event) => {
 
             const statsUpdate = new StatsUpdate(window.fileData, currCode);
             statsUpdate.updateAll();
-            inputField.value = '';
+            inputPlot.value = '';
 
-            inputField.blur();
+            inputPlot.blur();
         } catch (err) {
             console.log(err)
         }
