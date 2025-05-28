@@ -15,7 +15,8 @@ const createWindow = () => {
         resizable: false,
         webPreferences: {
             preload: path.join(__dirname, 'preload/preload.js'),
-            nodeIntegration: true
+            nodeIntegration: true,
+            contextIsolation: true
         },
     });
     win.setMenuBarVisibility(false);
