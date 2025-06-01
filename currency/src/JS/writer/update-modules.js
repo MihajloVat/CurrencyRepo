@@ -60,6 +60,7 @@ class NBUDataProcessor extends DataProcessor {
     process(rawData) {
         const output = {
             dates: rawData.dates,
+            descriptions: {}
         };
 
         for (const dailyData of rawData.data) {
@@ -67,9 +68,14 @@ class NBUDataProcessor extends DataProcessor {
                 try {
                     const code = currency.cc;
                     const rate = currency.rate;
+                    const description = currency.txt;
 
                     if (!output[code]) {
                         output[code] = [];
+                    }
+
+                    if (!output.descriptions[code]) {
+                        output.descriptions[code] = description;
                     }
 
                     output[code].push(rate);

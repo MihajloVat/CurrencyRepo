@@ -5,6 +5,7 @@ function getDatesFromFile(data) {
 function getCodesFromFile(data) {
     const codes = Object.keys(data);
     codes.shift()
+    codes.shift()
     return codes;
 }
 

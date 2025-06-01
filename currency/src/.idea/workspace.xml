@@ -2,31 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d12040f5-22c2-4c8d-a763-81bb4eaaf63a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/jsLibraryMappings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/src.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JS/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JS/.idea/JS.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JS/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JS/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JS/dates_formatter/dates_formatter.js" beforeDir="false" afterPath="$PROJECT_DIR$/JS/dates-formatter/dates-formatter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JS/main/data_path.js" beforeDir="false" afterPath="$PROJECT_DIR$/JS/main/data-path.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JS/main/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/JS/main/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JS/main/preload/preload.js" beforeDir="false" afterPath="$PROJECT_DIR$/JS/main/preload/preload.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JS/render/exposer/expose_data.js" beforeDir="false" afterPath="$PROJECT_DIR$/JS/render/exposer/expose-data.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JS/render/input/input_list.js" beforeDir="false" afterPath="$PROJECT_DIR$/JS/render/input/input-list.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JS/render/listeners/events.js" beforeDir="false" afterPath="$PROJECT_DIR$/JS/render/listeners/buttons.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JS/render/plot/plot.js" beforeDir="false" afterPath="$PROJECT_DIR$/JS/render/plot/plot-template.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JS/render/plot/plot_update.js" beforeDir="false" afterPath="$PROJECT_DIR$/JS/render/plot/draw-plot.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JS/writer/dates_tools.js" beforeDir="false" afterPath="$PROJECT_DIR$/JS/writer/dates_tools.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JS/writer/write_file.js" beforeDir="false" afterPath="$PROJECT_DIR$/JS/writer/write-function.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JS/writer/writer_config.js" beforeDir="false" afterPath="$PROJECT_DIR$/JS/writer/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JS/writer/writer_modules.js" beforeDir="false" afterPath="$PROJECT_DIR$/JS/writer/writer-modules.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,37 +14,37 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "MihajloVat"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;MihajloVat&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/MihajloVat/CurrencyRepo.git",
-    "accountId": "2aaadc12-a948-4ce1-bb3f-90208613c749"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/MihajloVat/CurrencyRepo.git&quot;,
+    &quot;accountId&quot;: &quot;2aaadc12-a948-4ce1-bb3f-90208613c749&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 3
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2x9g3xYDEApRqKMb2jf8Hqi4p7C" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -83,6 +60,7 @@
       <option name="presentableId" value="Default" />
       <updated>1747355508231</updated>
       <workItem from="1747355509916" duration="15000" />
+      <workItem from="1748774700736" duration="19000" />
     </task>
     <servers />
   </component>
