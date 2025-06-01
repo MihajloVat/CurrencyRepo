@@ -8,8 +8,7 @@ inputPlot.addEventListener('focus', async () => {
         if (!window.fileData) {
             return
         }
-        const keys = Object.keys(window.fileData);
-        keys.shift()
+        const keys = window.tools.getCodesFromFile(window.fileData)
         awesomePlot.list = keys;
         awesomePlot.maxItems = keys.length - 1;
         awesomePlot.evaluate();

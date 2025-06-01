@@ -1,5 +1,6 @@
 const {NBU_URL_BASE, NBU_URL_SUFFIX} = require('./config')
 const {MONTH_BACK} = require('./config')
+const {getDatesFromFile, getCodesFromFile, getValuesFromFile} = require('../utils/file-struct-tools')
 const fs = require('fs').promises;
 
 class DataProvider {
@@ -93,22 +94,23 @@ class NBUProcUpdater extends DataProcessor {
     update(data) {
         const updatedData = {};
 
-        const oldDates = this.oldData.dates || [];
+        const oldDates = getDatesFromFile(this.oldData) || [];
         const newDates = data.dates || [];
         const datesStartIndex = Math.min(this.diff, oldDates.length);
         updatedData.dates = [...oldDates.slice(datesStartIndex), ...newDates];
 
-        for (const key in this.oldData) {
-            if (key === 'dates') continue;
-            const oldValues = this.oldData[key] || [];
-            const newValues = data[key] || [];
+        const codes = getCodesFromFile(this.oldData);
+
+        for (const code in codes) {
+            const oldValues = getValuesFromFile(this.oldData, code) || [];
+            const newValues = data[code] || [];
             let valuesStartIndex = null
             if (oldValues.length >= MONTH_BACK) {
                 valuesStartIndex = Math.min(this.diff, oldValues.length);
             } else {
                 valuesStartIndex = 0
             }
-            updatedData[key] = [...oldValues.slice(valuesStartIndex), ...newValues];
+            updatedData[code] = [...oldValues.slice(valuesStartIndex), ...newValues];
         }
 
         for (const key in data) {

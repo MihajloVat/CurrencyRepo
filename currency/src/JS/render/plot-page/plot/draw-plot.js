@@ -8,7 +8,9 @@ function updatePlot(data, currCode, layout) {
         return;
     }
 
-    const formattedDates = data.dates.map(window.tools.formatDates);
+    const dates = window.tools.getDatesFromFile(data)
+
+    const formattedDates = dates.map(window.tools.formatDates);
 
     Plotly.update('plot', {
         x: [formattedDates], y: [data[currCode]]
