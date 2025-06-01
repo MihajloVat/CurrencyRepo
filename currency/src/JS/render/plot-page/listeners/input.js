@@ -9,7 +9,14 @@ inputPlot.addEventListener('focus', async () => {
             return
         }
         const keys = window.tools.getCodesFromFile(window.fileData)
-        awesomePlot.list = keys;
+
+        awesomePlot.list = keys.map(key => {
+            return {
+                label: `${key} (${window.tools.getDescriptionsFromFile(window.fileData, key)})`,
+                value: key
+            };
+        });
+
         awesomePlot.maxItems = keys.length - 1;
         awesomePlot.evaluate();
     } catch (err) {
@@ -22,7 +29,9 @@ inputPlot.addEventListener('awesomplete-selectcomplete', async (event) => {
         if (!window.fileData) {
             return
         }
-        const currCode = event.text.toUpperCase()
+        const text = event.text.toUpperCase()
+        const currCode = text.slice(0, 3)
+        console.log(currCode)
 
         drawPlot(currCode, window.fileData)
 

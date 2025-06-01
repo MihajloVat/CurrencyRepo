@@ -1,6 +1,6 @@
 const {contextBridge, ipcRenderer} = require('electron');
 const {formatDates} = require('../../utils/dates-formatter')
-const {getDatesFromFile, getCodesFromFile, getValuesFromFile} = require('../../utils/file-struct-tools')
+const {getDatesFromFile, getCodesFromFile, getValuesFromFile,getDescriptionsFromFile} = require('../../utils/file-struct-tools')
 
 contextBridge.exposeInMainWorld('tools', {
     getFileData: async () => {
@@ -9,5 +9,6 @@ contextBridge.exposeInMainWorld('tools', {
     formatDates,
     getDatesFromFile,
     getCodesFromFile,
-    getValuesFromFile
+    getValuesFromFile,
+    getDescriptionsFromFile
 });

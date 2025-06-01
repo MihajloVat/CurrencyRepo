@@ -13,4 +13,8 @@ function getValuesFromFile(data,code) {
     return data[code]
 }
 
-module.exports = {getDatesFromFile, getCodesFromFile, getValuesFromFile};
+function getDescriptionsFromFile(data,code) {
+    return data.descriptions[code]
+}
+
+module.exports = {getDatesFromFile, getCodesFromFile, getValuesFromFile,getDescriptionsFromFile};

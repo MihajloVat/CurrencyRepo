@@ -8,7 +8,14 @@ inputCodeFrom.addEventListener('focus', async () => {
         }
         const keys = window.tools.getCodesFromFile(window.fileData)
         keys.push('UAH')
-        awesomeFrom.list = keys;
+
+        awesomeFrom.list = keys.map(key => {
+            return {
+                label: `${key} (${window.tools.getDescriptionsFromFile(window.fileData, key)})`,
+                value: key
+            };
+        });
+
         awesomeFrom.maxItems = keys.length - 1;
         awesomeFrom.evaluate();
     } catch (err) {
@@ -23,7 +30,14 @@ inputCodeTo.addEventListener('focus', async () => {
         }
         const keys = window.tools.getCodesFromFile(window.fileData)
         keys.push('UAH')
-        awesomeTo.list = keys;
+
+        awesomeTo.list = keys.map(key => {
+            return {
+                label: `${key} (${window.tools.getDescriptionsFromFile(window.fileData, key)})`,
+                value: key
+            };
+        });
+
         awesomeTo.maxItems = keys.length - 1;
         awesomeTo.evaluate();
     } catch (err) {

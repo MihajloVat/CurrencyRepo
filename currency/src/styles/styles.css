@@ -262,7 +262,7 @@ body {
 
 .amount-row input[type="text"].currency-code-input {
     flex: 0 0 auto;
-    width: 60px;
+    width: 200px;
     text-align: right;
     font-size: 24px;
     color: #777;
@@ -319,7 +319,7 @@ body {
     top: 387px; /* Відступ від верхнього краю (налаштуй за потребою) */
     right: 8px; /* Відступ від правого краю (налаштуй за потребою) */
     width: 220px;
-    height: 61px;/* Ширина кнопки (налаштуй за потребою) */
+    height: 61px; /* Ширина кнопки (налаштуй за потребою) */
     padding: 20px 14px;
     box-sizing: border-box;
     font-size: 18px;
