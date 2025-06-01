@@ -6,8 +6,7 @@ inputCodeFrom.addEventListener('focus', async () => {
         if (!window.fileData) {
             return
         }
-        const keys = Object.keys(window.fileData);
-        keys.shift()
+        const keys = window.tools.getCodesFromFile(window.fileData)
         keys.push('UAH')
         awesomeFrom.list = keys;
         awesomeFrom.maxItems = keys.length - 1;
@@ -22,8 +21,7 @@ inputCodeTo.addEventListener('focus', async () => {
         if (!window.fileData) {
             return
         }
-        const keys = Object.keys(window.fileData);
-        keys.shift()
+        const keys = window.tools.getCodesFromFile(window.fileData)
         keys.push('UAH')
         awesomeTo.list = keys;
         awesomeTo.maxItems = keys.length - 1;

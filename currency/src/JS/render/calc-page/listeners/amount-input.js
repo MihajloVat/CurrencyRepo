@@ -21,14 +21,14 @@ inputAmountFrom.addEventListener('input', async () => {
     if (codeFrom === 'UAH') {
         rateFrom = 1;
     } else {
-        const codeFromData = window.fileData[codeFrom]
+        const codeFromData = window.tools.getValuesFromFile(window.fileData, codeFrom)
         rateFrom = codeFromData[codeFromData.length - 1]
     }
 
     if (codeTo === 'UAH') {
         rateTo = 1
     } else {
-        const codeToData = window.fileData[codeTo]
+        const codeToData =  window.tools.getValuesFromFile(window.fileData, codeTo)
         rateTo = codeToData[codeToData.length - 1]
     }
 
