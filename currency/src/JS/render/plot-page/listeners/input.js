@@ -31,7 +31,6 @@ inputPlot.addEventListener('awesomplete-selectcomplete', async (event) => {
         }
         const text = event.text.toUpperCase()
         const currCode = text.slice(0, 3)
-        console.log(currCode)
 
         drawPlot(currCode, window.fileData)
 

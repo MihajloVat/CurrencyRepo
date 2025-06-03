@@ -9,12 +9,12 @@ function getCodesFromFile(data) {
     return codes;
 }
 
-function getValuesFromFile(data,code) {
+function getValuesFromFile(data, code) {
     return data[code]
 }
 
-function getDescriptionsFromFile(data,code) {
+function getDescriptionsFromFile(data, code) {
     return data.descriptions[code]
 }
 
-module.exports = {getDatesFromFile, getCodesFromFile, getValuesFromFile,getDescriptionsFromFile};
+module.exports = {getDatesFromFile, getCodesFromFile, getValuesFromFile, getDescriptionsFromFile};
