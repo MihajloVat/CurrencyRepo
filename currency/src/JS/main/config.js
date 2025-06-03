@@ -1,8 +1,8 @@
 const {app} = require('electron');
 const path = require('path');
 
-const dataFilePath = path.join(app.getPath('userData'), 'data.json');
-//const dataFilePath = `C:/Users/vatol/OneDrive/Робочий стіл/data.json`
+const dataFilePath = path.join(app.getPath('userData'), 'currencyData.json');
+//const dataFilePath = `C:/Users/vatol/OneDrive/Робочий стіл/currencyData.json`
 
 const ALERT = {
     NO_INTERNET_HAS_FILE: {

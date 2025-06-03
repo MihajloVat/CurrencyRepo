@@ -59,8 +59,7 @@ class NBUDataProvider extends DataProvider {
 class NBUDataProcessor extends DataProcessor {
     process(rawData) {
         const output = {
-            dates: rawData.dates,
-            descriptions: {}
+            dates: rawData.dates, descriptions: {}
         };
 
         for (const dailyData of rawData.data) {
@@ -129,16 +128,24 @@ class NBUProcUpdater extends DataProcessor {
     }
 
     process(newData) {
-        const data = {dates: newData.dates};
+        const data = {
+            dates: newData.dates,
+            descriptions: {}
+        };
 
         for (const dailyData of newData.data) {
             for (const currency of dailyData) {
                 try {
                     const code = currency.cc;
                     const rate = currency.rate;
+                    const description = currency.txt;
 
                     if (!data[code]) {
                         data[code] = [];
+                    }
+
+                    if (!data.descriptions[code]) {
+                        data.descriptions[code] = description;
                     }
 
                     data[code].push(rate);

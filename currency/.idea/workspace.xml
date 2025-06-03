@@ -7,8 +7,8 @@
     <list default="true" id="adb5ce4e-8b60-4493-a06b-f41237987c67" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/JS/main/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/JS/main/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JS/render/plot-page/listeners/input.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/JS/render/plot-page/listeners/input.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JS/utils/file-struct-tools.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/JS/utils/file-struct-tools.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JS/main/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/JS/main/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JS/writer/update-modules.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/JS/writer/update-modules.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,6 +171,8 @@
       <workItem from="1748810078290" duration="15000" />
       <workItem from="1748896409080" duration="22000" />
       <workItem from="1748913140024" duration="36000" />
+      <workItem from="1748913315022" duration="642000" />
+      <workItem from="1748914172616" duration="904000" />
     </task>
     <servers />
   </component>
