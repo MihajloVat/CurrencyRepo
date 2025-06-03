@@ -15,7 +15,7 @@
   },
   "build": {
     "appId": "com.currency.app",
-    "productName": "Currency",
+    "productName": "Currency Stats",
     "directories": {
       "output": "dist"
     },
